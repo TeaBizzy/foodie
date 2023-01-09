@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter&family=Lobster&family=Quicksand&display=swap');
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  height: 100px;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 8px 8px;
+}
+
+h1 {
+  margin-left: 20px;
+  font-family: 'Lobster', cursive;
+  font-size: 40px;
+  color: #EC1562;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.user-icon {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  color: #FFFFFF;
+  background-color: #EC1562;
+  margin-right: 10px;
+}
