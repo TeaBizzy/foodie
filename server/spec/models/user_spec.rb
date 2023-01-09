@@ -1,9 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  before(:each) do
-    
-  end
   describe 'Validations' do
     it 'should give an error if e-mail is blank' do
       user = User.new(first_name: "Mike", last_name: "Smith", email: nil, password: "password")
