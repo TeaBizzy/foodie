@@ -25,3 +25,9 @@ user2 = User.create(first_name: 'Jane', last_name: 'Smith', email: 'jane_smith@e
 user3 = User.create(first_name: 'Kelvin', last_name: 'Huang', email: 'kelvin.huang98@hotmail.com', password: 'password', img_url: 'https://imgur.com/bVrBJ3i')
 user4 = User.create(first_name: 'Stefan', last_name: 'Talbot', email: 'satalbot@protonmail.com', password: 'password', img_url: 'https://imgur.com/vMY7lhj')
 user5 = User.create(first_name: 'Rahim', last_name: 'Jamal', email: 'rahimj2196@gmail.com', password: 'password', img_url: 'https://imgur.com/YNVkpBM')
+
+## Create Sessions.
+puts "Creating Sessions"
+Session.destroy_all
+
+session1 = Session.create(reservation: '20/01/2023 6:00 PM'.to_time)
