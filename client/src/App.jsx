@@ -1,10 +1,10 @@
 import './App.css';
-import InputField from './components/InputField';
+import Registration from './routes/Registration';
 
 function App() {
   return (
     <div className="App">
-      <InputField />
+      <Registration />
     </div>
   );
 }
