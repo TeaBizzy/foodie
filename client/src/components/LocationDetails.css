@@ -13,3 +13,9 @@
   margin-bottom: 0px;
   color: #EC1562;
 }
+
+.location-selection {
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
+}
