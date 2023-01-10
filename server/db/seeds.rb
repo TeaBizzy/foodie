@@ -35,7 +35,7 @@ session1 = Session.create(reservation: '20/01/2023 6:00 PM'.to_time)
 ## Create Restaurants.
 puts "Creating Restaurants"
 Restaurant.destroy_all
-Hour.destroy_all
+OperatingTime.destroy_all
 
 restaurant1 = Restaurant.create(
   name: 'Table For 2 Steak House', 
@@ -48,12 +48,12 @@ restaurant1 = Restaurant.create(
   website: nil
 )
 
-hour1 = Hour.create(restaurant_id: restaurant1.id, day: 1, open: "16:00".to_time, close: "21:00".to_time)
-hour2 = Hour.create(restaurant_id: restaurant1.id, day: 2, open: "16:00".to_time, close: "21:00".to_time)
-hour3 = Hour.create(restaurant_id: restaurant1.id, day: 3, open: "16:00".to_time, close: "21:00".to_time)
-hour4 = Hour.create(restaurant_id: restaurant1.id, day: 4, open: "16:00".to_time, close: "21:00".to_time)
-hour5 = Hour.create(restaurant_id: restaurant1.id, day: 5, open: "16:00".to_time, close: "21:00".to_time)
-hour6 = Hour.create(restaurant_id: restaurant1.id, day: 6, open: "16:00".to_time, close: "21:00".to_time)
+operating_time1 = OperatingTime.create(restaurant_id: restaurant1.id, day: 1, open: "16:00".to_time, close: "21:00".to_time)
+operating_time2 = OperatingTime.create(restaurant_id: restaurant1.id, day: 2, open: "16:00".to_time, close: "21:00".to_time)
+operating_time3 = OperatingTime.create(restaurant_id: restaurant1.id, day: 3, open: "16:00".to_time, close: "21:00".to_time)
+operating_time4 = OperatingTime.create(restaurant_id: restaurant1.id, day: 4, open: "16:00".to_time, close: "21:00".to_time)
+operating_time5 = OperatingTime.create(restaurant_id: restaurant1.id, day: 5, open: "16:00".to_time, close: "21:00".to_time)
+operating_time6 = OperatingTime.create(restaurant_id: restaurant1.id, day: 6, open: "16:00".to_time, close: "21:00".to_time)
 
 restaurant2 = Restaurant.create(
   name: 'All star Roadhouse Bar & Grill', 
@@ -66,13 +66,13 @@ restaurant2 = Restaurant.create(
   website: 'https://barandgrillalliston.ca/'
 )
 
-hour1 = Hour.create(restaurant_id: restaurant2.id, day: 1, open: "11:00".to_time, close: "00:00".to_time)
-hour2 = Hour.create(restaurant_id: restaurant2.id, day: 2, open: "11:00".to_time, close: "00:00".to_time)
-hour3 = Hour.create(restaurant_id: restaurant2.id, day: 3, open: "11:00".to_time, close: "00:00".to_time)
-hour4 = Hour.create(restaurant_id: restaurant2.id, day: 4, open: "11:00".to_time, close: "00:00".to_time)
-hour5 = Hour.create(restaurant_id: restaurant2.id, day: 5, open: "11:00".to_time, close: "00:00".to_time)
-hour6 = Hour.create(restaurant_id: restaurant2.id, day: 6, open: "11:00".to_time, close: "00:00".to_time)
-hour7 = Hour.create(restaurant_id: restaurant2.id, day: 7, open: "11:00".to_time, close: "00:00".to_time)
+operating_time1 = OperatingTime.create(restaurant_id: restaurant2.id, day: 1, open: "11:00".to_time, close: "00:00".to_time)
+operating_time2 = OperatingTime.create(restaurant_id: restaurant2.id, day: 2, open: "11:00".to_time, close: "00:00".to_time)
+operating_time3 = OperatingTime.create(restaurant_id: restaurant2.id, day: 3, open: "11:00".to_time, close: "00:00".to_time)
+operating_time4 = OperatingTime.create(restaurant_id: restaurant2.id, day: 4, open: "11:00".to_time, close: "00:00".to_time)
+operating_time5 = OperatingTime.create(restaurant_id: restaurant2.id, day: 5, open: "11:00".to_time, close: "00:00".to_time)
+operating_time6 = OperatingTime.create(restaurant_id: restaurant2.id, day: 6, open: "11:00".to_time, close: "00:00".to_time)
+operating_time7 = OperatingTime.create(restaurant_id: restaurant2.id, day: 7, open: "11:00".to_time, close: "00:00".to_time)
 
 restaurant3 = Restaurant.create(
   name: 'Taqueria El Norte', 
@@ -85,12 +85,12 @@ restaurant3 = Restaurant.create(
   website: 'http://www.taqueriaelnorte.com/'
 )
 
-hour1 = Hour.create(restaurant_id: restaurant3.id, day: 1, open: "11:00".to_time, close: "20:00".to_time)
-hour2 = Hour.create(restaurant_id: restaurant3.id, day: 2, open: "11:00".to_time, close: "20:00".to_time)
-hour3 = Hour.create(restaurant_id: restaurant3.id, day: 3, open: "11:00".to_time, close: "20:00".to_time)
-hour4 = Hour.create(restaurant_id: restaurant3.id, day: 4, open: "11:00".to_time, close: "20:00".to_time)
-hour5 = Hour.create(restaurant_id: restaurant3.id, day: 5, open: "11:00".to_time, close: "21:00".to_time)
-hour6 = Hour.create(restaurant_id: restaurant3.id, day: 6, open: "11:00".to_time, close: "21:00".to_time)
+operating_time1 = OperatingTime.create(restaurant_id: restaurant3.id, day: 1, open: "11:00".to_time, close: "20:00".to_time)
+operating_time2 = OperatingTime.create(restaurant_id: restaurant3.id, day: 2, open: "11:00".to_time, close: "20:00".to_time)
+operating_time3 = OperatingTime.create(restaurant_id: restaurant3.id, day: 3, open: "11:00".to_time, close: "20:00".to_time)
+operating_time4 = OperatingTime.create(restaurant_id: restaurant3.id, day: 4, open: "11:00".to_time, close: "20:00".to_time)
+operating_time5 = OperatingTime.create(restaurant_id: restaurant3.id, day: 5, open: "11:00".to_time, close: "21:00".to_time)
+operating_time6 = OperatingTime.create(restaurant_id: restaurant3.id, day: 6, open: "11:00".to_time, close: "21:00".to_time)
 
 restaurant4 = Restaurant.create(
   name: 'Sara', 
@@ -103,11 +103,11 @@ restaurant4 = Restaurant.create(
   website: 'http://www.sara.restaurant/'
 )
 
-hour1 = Hour.create(restaurant_id: restaurant4.id, day: 2, open: "17:00".to_time, close: "22:30".to_time)
-hour2 = Hour.create(restaurant_id: restaurant4.id, day: 3, open: "17:00".to_time, close: "22:30".to_time)
-hour3 = Hour.create(restaurant_id: restaurant4.id, day: 4, open: "17:00".to_time, close: "23:00".to_time)
-hour4 = Hour.create(restaurant_id: restaurant4.id, day: 5, open: "17:00".to_time, close: "23:00".to_time)
-hour5 = Hour.create(restaurant_id: restaurant4.id, day: 6, open: "17:00".to_time, close: "23:00".to_time)
+operating_time1 = OperatingTime.create(restaurant_id: restaurant4.id, day: 2, open: "17:00".to_time, close: "22:30".to_time)
+operating_time2 = OperatingTime.create(restaurant_id: restaurant4.id, day: 3, open: "17:00".to_time, close: "22:30".to_time)
+operating_time3 = OperatingTime.create(restaurant_id: restaurant4.id, day: 4, open: "17:00".to_time, close: "23:00".to_time)
+operating_time4 = OperatingTime.create(restaurant_id: restaurant4.id, day: 5, open: "17:00".to_time, close: "23:00".to_time)
+operating_time5 = OperatingTime.create(restaurant_id: restaurant4.id, day: 6, open: "17:00".to_time, close: "23:00".to_time)
 
 restaurant5 = Restaurant.create(
   name: "The Burger's Priest", 
@@ -120,13 +120,13 @@ restaurant5 = Restaurant.create(
   website: 'https://www.theburgerspriest.com/'
 )
 
-hour2 = Hour.create(restaurant_id: restaurant5.id, day: 1, open: "11:00".to_time, close: "00:00".to_time)
-hour3 = Hour.create(restaurant_id: restaurant5.id, day: 2, open: "11:00".to_time, close: "00:00".to_time)
-hour4 = Hour.create(restaurant_id: restaurant5.id, day: 3, open: "11:00".to_time, close: "00:00".to_time)
-hour5 = Hour.create(restaurant_id: restaurant5.id, day: 4, open: "11:00".to_time, close: "02:00".to_time)
-hour6 = Hour.create(restaurant_id: restaurant5.id, day: 5, open: "11:00".to_time, close: "04:00".to_time)
-hour7 = Hour.create(restaurant_id: restaurant5.id, day: 6, open: "11:00".to_time, close: "04:00".to_time)
-hour1 = Hour.create(restaurant_id: restaurant5.id, day: 0, open: "11:00".to_time, close: "00:00".to_time)
+operating_time2 = OperatingTime.create(restaurant_id: restaurant5.id, day: 1, open: "11:00".to_time, close: "00:00".to_time)
+operating_time3 = OperatingTime.create(restaurant_id: restaurant5.id, day: 2, open: "11:00".to_time, close: "00:00".to_time)
+operating_time4 = OperatingTime.create(restaurant_id: restaurant5.id, day: 3, open: "11:00".to_time, close: "00:00".to_time)
+operating_time5 = OperatingTime.create(restaurant_id: restaurant5.id, day: 4, open: "11:00".to_time, close: "02:00".to_time)
+operating_time6 = OperatingTime.create(restaurant_id: restaurant5.id, day: 5, open: "11:00".to_time, close: "04:00".to_time)
+operating_time7 = OperatingTime.create(restaurant_id: restaurant5.id, day: 6, open: "11:00".to_time, close: "04:00".to_time)
+operating_time1 = OperatingTime.create(restaurant_id: restaurant5.id, day: 0, open: "11:00".to_time, close: "00:00".to_time)
 
 restaurant6 = Restaurant.create(
   name: "Claudio's", 
@@ -139,14 +139,14 @@ restaurant6 = Restaurant.create(
   website: 'http://claudios.ca/'
 )
 
-hour1 = Hour.create(restaurant_id: restaurant6.id, day: 0, open: "17:00".to_time, close: "21:00".to_time)
-hour2 = Hour.create(restaurant_id: restaurant6.id, day: 1, open: "12:00".to_time, close: "14:30".to_time)
-hour3 = Hour.create(restaurant_id: restaurant6.id, day: 1, open: "17:00".to_time, close: "21:00".to_time)
-hour4 = Hour.create(restaurant_id: restaurant6.id, day: 4, open: "12:00".to_time, close: "14:30".to_time)
-hour5 = Hour.create(restaurant_id: restaurant6.id, day: 4, open: "17:00".to_time, close: "21:00".to_time)
-hour6 = Hour.create(restaurant_id: restaurant6.id, day: 5, open: "12:00".to_time, close: "14:30".to_time)
-hour7 = Hour.create(restaurant_id: restaurant6.id, day: 5, open: "17:00".to_time, close: "22:00".to_time)
-hour8 = Hour.create(restaurant_id: restaurant6.id, day: 6, open: "17:00".to_time, close: "22:00".to_time)
+operating_time1 = OperatingTime.create(restaurant_id: restaurant6.id, day: 0, open: "17:00".to_time, close: "21:00".to_time)
+operating_time2 = OperatingTime.create(restaurant_id: restaurant6.id, day: 1, open: "12:00".to_time, close: "14:30".to_time)
+operating_time3 = OperatingTime.create(restaurant_id: restaurant6.id, day: 1, open: "17:00".to_time, close: "21:00".to_time)
+operating_time4 = OperatingTime.create(restaurant_id: restaurant6.id, day: 4, open: "12:00".to_time, close: "14:30".to_time)
+operating_time5 = OperatingTime.create(restaurant_id: restaurant6.id, day: 4, open: "17:00".to_time, close: "21:00".to_time)
+operating_time6 = OperatingTime.create(restaurant_id: restaurant6.id, day: 5, open: "12:00".to_time, close: "14:30".to_time)
+operating_time7 = OperatingTime.create(restaurant_id: restaurant6.id, day: 5, open: "17:00".to_time, close: "22:00".to_time)
+operating_time8 = OperatingTime.create(restaurant_id: restaurant6.id, day: 6, open: "17:00".to_time, close: "22:00".to_time)
 
 restaurant7 = Restaurant.create(
   name: "Born & Raised", 
@@ -159,9 +159,9 @@ restaurant7 = Restaurant.create(
   website: 'https://www.bornandraisedrestaurant.com/'
 )
 
-hour1 = Hour.create(restaurant_id: restaurant7.id, day: 0, open: "17:00".to_time, close: "02:00".to_time)
-hour2 = Hour.create(restaurant_id: restaurant7.id, day: 5, open: "17:00".to_time, close: "02:00".to_time)
-hour3 = Hour.create(restaurant_id: restaurant7.id, day: 6, open: "17:00".to_time, close: "02:00".to_time)
+operating_time1 = OperatingTime.create(restaurant_id: restaurant7.id, day: 0, open: "17:00".to_time, close: "02:00".to_time)
+operating_time2 = OperatingTime.create(restaurant_id: restaurant7.id, day: 5, open: "17:00".to_time, close: "02:00".to_time)
+operating_time3 = OperatingTime.create(restaurant_id: restaurant7.id, day: 6, open: "17:00".to_time, close: "02:00".to_time)
 
 restaurant8 = Restaurant.create(
   name: "Wanda's Caribbean Kitchen", 
@@ -174,12 +174,12 @@ restaurant8 = Restaurant.create(
   website: 'http://www.wandascaribbeankitchen.com/'
 )
 
-hour1 = Hour.create(restaurant_id: restaurant8.id, day: 1, open: "10:30".to_time, close: "20:00".to_time)
-hour2 = Hour.create(restaurant_id: restaurant8.id, day: 2, open: "10:30".to_time, close: "20:00".to_time)
-hour3 = Hour.create(restaurant_id: restaurant8.id, day: 3, open: "10:30".to_time, close: "20:00".to_time)
-hour4 = Hour.create(restaurant_id: restaurant8.id, day: 4, open: "10:30".to_time, close: "20:00".to_time)
-hour5 = Hour.create(restaurant_id: restaurant8.id, day: 5, open: "10:30".to_time, close: "20:00".to_time)
-hour6 = Hour.create(restaurant_id: restaurant8.id, day: 6, open: "10:30".to_time, close: "20:00".to_time)
+operating_time1 = OperatingTime.create(restaurant_id: restaurant8.id, day: 1, open: "10:30".to_time, close: "20:00".to_time)
+operating_time2 = OperatingTime.create(restaurant_id: restaurant8.id, day: 2, open: "10:30".to_time, close: "20:00".to_time)
+operating_time3 = OperatingTime.create(restaurant_id: restaurant8.id, day: 3, open: "10:30".to_time, close: "20:00".to_time)
+operating_time4 = OperatingTime.create(restaurant_id: restaurant8.id, day: 4, open: "10:30".to_time, close: "20:00".to_time)
+operating_time5 = OperatingTime.create(restaurant_id: restaurant8.id, day: 5, open: "10:30".to_time, close: "20:00".to_time)
+operating_time6 = OperatingTime.create(restaurant_id: restaurant8.id, day: 6, open: "10:30".to_time, close: "20:00".to_time)
 
 
 restaurant9 = Restaurant.create(
@@ -193,12 +193,12 @@ restaurant9 = Restaurant.create(
   website: 'https://www.momijiclarkson.com/'
 )
 
-hour1 = Hour.create(restaurant_id: restaurant9.id, day: 0, open: "12:00".to_time, close: "22:00".to_time)
-hour2 = Hour.create(restaurant_id: restaurant9.id, day: 1, open: "11:30".to_time, close: "22:00".to_time)
-hour3 = Hour.create(restaurant_id: restaurant9.id, day: 3, open: "11:30".to_time, close: "22:00".to_time)
-hour4 = Hour.create(restaurant_id: restaurant9.id, day: 4, open: "11:30".to_time, close: "22:00".to_time)
-hour5 = Hour.create(restaurant_id: restaurant9.id, day: 5, open: "11:30".to_time, close: "22:00".to_time)
-hour6 = Hour.create(restaurant_id: restaurant9.id, day: 6, open: "12:00".to_time, close: "22:00".to_time)
+operating_time1 = OperatingTime.create(restaurant_id: restaurant9.id, day: 0, open: "12:00".to_time, close: "22:00".to_time)
+operating_time2 = OperatingTime.create(restaurant_id: restaurant9.id, day: 1, open: "11:30".to_time, close: "22:00".to_time)
+operating_time3 = OperatingTime.create(restaurant_id: restaurant9.id, day: 3, open: "11:30".to_time, close: "22:00".to_time)
+operating_time4 = OperatingTime.create(restaurant_id: restaurant9.id, day: 4, open: "11:30".to_time, close: "22:00".to_time)
+operating_time5 = OperatingTime.create(restaurant_id: restaurant9.id, day: 5, open: "11:30".to_time, close: "22:00".to_time)
+operating_time6 = OperatingTime.create(restaurant_id: restaurant9.id, day: 6, open: "12:00".to_time, close: "22:00".to_time)
 
 restaurant10 = Restaurant.create(
   name: "Treadwell Cuisine", 
@@ -211,11 +211,11 @@ restaurant10 = Restaurant.create(
   website: 'https://www.treadwellcuisine.com/'
 )
 
-hour1 = Hour.create(restaurant_id: restaurant10.id, day: 0, open: "08:00".to_time, close: "20:45".to_time)
-hour2 = Hour.create(restaurant_id: restaurant10.id, day: 1, open: "08:00".to_time, close: "20:45".to_time)
-hour3 = Hour.create(restaurant_id: restaurant10.id, day: 2, open: "08:00".to_time, close: "20:45".to_time)
-hour4 = Hour.create(restaurant_id: restaurant10.id, day: 3, open: "08:00".to_time, close: "20:45".to_time)
-hour5 = Hour.create(restaurant_id: restaurant10.id, day: 4, open: "08:00".to_time, close: "20:45".to_time)
-hour6 = Hour.create(restaurant_id: restaurant10.id, day: 5, open: "08:00".to_time, close: "20:45".to_time)
-hour7 = Hour.create(restaurant_id: restaurant10.id, day: 6, open: "08:00".to_time, close: "20:45".to_time)
+operating_time1 = OperatingTime.create(restaurant_id: restaurant10.id, day: 0, open: "08:00".to_time, close: "20:45".to_time)
+operating_time2 = OperatingTime.create(restaurant_id: restaurant10.id, day: 1, open: "08:00".to_time, close: "20:45".to_time)
+operating_time3 = OperatingTime.create(restaurant_id: restaurant10.id, day: 2, open: "08:00".to_time, close: "20:45".to_time)
+operating_time4 = OperatingTime.create(restaurant_id: restaurant10.id, day: 3, open: "08:00".to_time, close: "20:45".to_time)
+operating_time5 = OperatingTime.create(restaurant_id: restaurant10.id, day: 4, open: "08:00".to_time, close: "20:45".to_time)
+operating_time6 = OperatingTime.create(restaurant_id: restaurant10.id, day: 5, open: "08:00".to_time, close: "20:45".to_time)
+operating_time7 = OperatingTime.create(restaurant_id: restaurant10.id, day: 6, open: "08:00".to_time, close: "20:45".to_time)
 
