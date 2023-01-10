@@ -5,7 +5,7 @@ import "../components/Registration.css"
 const Registration = () => {
   return (
     <div className="container">
-      <h1>Foodie</h1>
+      <h1 className="register-h1">Foodie</h1>
       <h2>Hungry for options? Let us be your culinary compass!</h2>
       <form>
         <input type="text" placeholder="First Name"></input>

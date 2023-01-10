@@ -1,14 +1,16 @@
 import { Route, Routes } from "react-router-dom"
+import Home from './routes/Home';
 import Registration from './routes/Registration';
 import Login from './routes/Login';
-import SessionDetails from "./components/SessionDetails";
+import Create from "./routes/Create";
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<SessionDetails />}/>
+      <Route path="/" element={<Home />}/>
       <Route path="/register" element={<Registration />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/create" element={<Create />} />
     </Routes>
   );
 }

@@ -3,16 +3,16 @@ import DatePicker from 'react-datepicker'
 import { FaCalendarAlt } from 'react-icons/fa'
 import 'react-datepicker/dist/react-datepicker.css'
 
-import './SessionDetails.css'
+import './DateDetails.css'
 
-const SessionDetails = () => {
+const DateDetails = () => {
   const [selectedDate, setSelectedDate] = useState(null)
 
   return (
     <div className="date-container">
       <FaCalendarAlt size={60} style={{color: '#8E8E8E'}}/>
       <div className="date-selection">
-        <h1>When?</h1>
+        <h1 className="date-h1">When?</h1>
         <DatePicker 
         selected={selectedDate} 
         onChange={date => setSelectedDate(date)} 
@@ -23,4 +23,4 @@ const SessionDetails = () => {
   )
 }
 
-export default SessionDetails
+export default DateDetails
