@@ -13,7 +13,11 @@ const SessionDetails = () => {
       <FaCalendarAlt size={60} style={{color: '#8E8E8E'}}/>
       <div className="date-selection">
         <h1>When?</h1>
-        <DatePicker selected={selectedDate} onChange={date => setSelectedDate(date)}/>
+        <DatePicker 
+        selected={selectedDate} 
+        onChange={date => setSelectedDate(date)} 
+        showTimeSelect
+        dateFormat="Pp"/>
       </div>
     </div>
   )
