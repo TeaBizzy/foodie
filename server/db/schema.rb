@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_10_190544) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_10_193243) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -39,7 +39,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_10_190544) do
     t.float "lat"
     t.float "lng"
     t.string "website"
-    t.boolean "accepted", default: false
     t.float "rating"
     t.string "img_url"
     t.datetime "created_at", null: false
