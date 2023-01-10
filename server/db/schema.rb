@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_10_185711) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_10_190544) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -52,6 +52,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_10_185711) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "swipes", force: :cascade do |t|
+    t.bigint "restaurant_id"
+    t.boolean "is_approved"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["restaurant_id"], name: "index_swipes_on_restaurant_id"
+  end
+
   create_table "user_sessions", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "session_id"
@@ -72,6 +80,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_10_185711) do
   end
 
   add_foreign_key "operating_times", "restaurants"
+  add_foreign_key "swipes", "restaurants"
   add_foreign_key "user_sessions", "sessions"
   add_foreign_key "user_sessions", "users"
 end
