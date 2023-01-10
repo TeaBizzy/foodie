@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   get 'examples/index'
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   
   # Defines the root path route ("/")
   # root "articles#index"
-  
+  resources :restaurants, only: [:index]
   resources :users, only: [:create, :index]
   resources :examples, only: [:index]
 end
