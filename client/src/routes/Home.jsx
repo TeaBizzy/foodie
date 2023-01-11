@@ -11,9 +11,9 @@ const Home = () => {
   return (
     <div className="home-container">
       <Navbar />
-      <div className="add-button">
+      <button className="add-button">
         <FaPlusSquare size={60} style={{color: 'white', backgroundColor: '#EC1652', height: '100', width: '95%', borderRadius: '20px'}}/>
-      </div>
+      </button>
       <Completed />
       <Incomplete />
       <New />
