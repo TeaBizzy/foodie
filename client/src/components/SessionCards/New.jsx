@@ -1,26 +1,26 @@
 import React from 'react'
-import keg from "../assets/keg.jpg"
-import Finished from "./Status/Finished"
+import pending from "../../assets/pending.png"
+import New from "../Status/New"
 import "./SessionCard.css"
 
-const SessionCard = () => {
+const Incomplete = () => {
   return (
     <div className="sessions-container">
       <div className="session">
         <div className="session-left">
-          <img className="session-image" src={keg} alt="keg"></img>
+          <img className="session-image" src={pending} alt="restaurant image"></img>
           <div className="restaurant-container">
             <div className="restaurant-details">
-              <span className="restaurant-name">Restaurant Name</span>
-              <span className="restaurant-address">Restaurant Address</span>
+              <span className="restaurant-name" style={{display: 'none'}}>Restaurant Name</span>
+              <span className="restaurant-address" style={{display: 'none'}}>Restaurant Address</span>
             </div>
             <div className="session-details">
-              <span className="session-date">Session Date</span>
+              <span className="session-date" style={{marginTop: '55px'}}>Session Date</span>
             </div>
           </div>
         </div>
         <div className="session-right">
-          <Finished />
+          <New />
           <div className="session-participants">
             <span className="session-user"></span>
             <span className="session-user"></span>
@@ -36,4 +36,4 @@ const SessionCard = () => {
   )
 }
 
-export default SessionCard
+export default Incomplete
