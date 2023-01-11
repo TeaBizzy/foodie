@@ -4,10 +4,7 @@ import Login from './routes/Login';
 import { useState, useEffect } from 'react';
 import ProtectedRoute from './routes/ProtectedRoute'
 import axios from "axios";
-import { Route, Routes } from "react-router-dom"
 import LocationDetails from './components/LocationDetails';
-import Registration from './routes/Registration';
-import Login from './routes/Login';
 import Create from "./routes/Create";
 import Swipping from './routes/Swiping';
 
