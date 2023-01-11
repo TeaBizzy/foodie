@@ -22,6 +22,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_10_193243) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "hours", force: :cascade do |t|
+    t.bigint "restaurant_id"
+    t.integer "day"
+    t.time "open"
+    t.time "close"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["restaurant_id"], name: "index_hours_on_restaurant_id"
+  end
+
   create_table "operating_times", force: :cascade do |t|
     t.bigint "restaurant_id"
     t.integer "day"
@@ -78,6 +88,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_10_193243) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "hours", "restaurants"
   add_foreign_key "operating_times", "restaurants"
   add_foreign_key "swipes", "restaurants"
   add_foreign_key "user_sessions", "sessions"

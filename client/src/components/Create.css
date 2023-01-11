@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter&family=Lobster&family=Quicksand&display=swap');
+
+.session-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+.start-button {
+  text-transform: uppercase;
+  font-family: 'Inter', sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: #EF1652;
+  height: 80px;
+  width: 150px;
+  border-radius: 50px;
+  margin-right: 20px;
+  border: none;
+}
+
+.cancel-button {
+  text-transform: uppercase;
+  font-family: 'Inter', sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  color: #EF1652;
+  height: 80px;
+  width: 150px;
+  border-radius: 50px;
+  box-shadow: 2px 2px 2px 2px rgb(0 0 0 / 0.2);
+  margin-left: 20px;
+  border: none;
+}
