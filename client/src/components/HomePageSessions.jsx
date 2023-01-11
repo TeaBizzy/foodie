@@ -8,7 +8,7 @@ const HomePageSessions = () => {
     <div className="sessions-container">
       <div className="session">
         <div className="session-left">
-          <img className="session-image" src={keg}></img>
+          <img className="session-image" src={keg} alt="keg"></img>
           <div className="restaurant-container">
             <div className="restaurant-details">
               <span className="restaurant-name">Restaurant Name</span>
