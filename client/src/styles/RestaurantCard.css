@@ -35,8 +35,24 @@
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
 }
+
+.details-visible {
+  height: 50%;
+  border-radius: 0px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 8px 8px;
+}
+
+.details-container {
+  height: 50%;
+  padding: 1rem;
+}
+
 .restaurant-img {
   flex-shrink: 0;
   min-width: 100%;
   min-height: 100%;
+}
+
+.hidden {
+  display: none;
 }
