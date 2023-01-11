@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaStar, FaPizzaSlice } from 'react-icons/fa'
+import { FaStar } from 'react-icons/fa'
 
 import "./Finished.css"
 
