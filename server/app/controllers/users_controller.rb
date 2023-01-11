@@ -4,9 +4,7 @@ class UsersController < ApplicationController
   # POST /users
   def create
     @user = User.new(user_params)
-
     @user.save
-     
   end
 
   def index
@@ -22,6 +20,27 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :password)
+      inputs = params.require(:user).permit(:first_name, :last_name, :email, :password)
+      inputs[:img_url] = get_random_img
+      return inputs
+    end
+
+    # Returns a random user image url.
+    def get_random_img
+      imgs = [
+        'https://imgur.com/xBu564e',
+        'https://imgur.com/avMgDEG',
+        'https://imgur.com/6U9WNtQ',
+        'https://imgur.com/oHajDVW',
+        'https://imgur.com/Hpa47PC',
+        'https://imgur.com/GvDavl9',
+        'https://imgur.com/JJCFZEc',
+        'https://imgur.com/bVrBJ3i',
+        'https://imgur.com/vMY7lhj',
+        'https://imgur.com/Igx6E8H',
+        'https://imgur.com/YNVkpBM'
+      ]
+
+      imgs[rand(imgs.length)]
     end
 end
