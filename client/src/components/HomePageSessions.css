@@ -8,6 +8,7 @@
 .session {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   height: 150px;
   border-radius: 30px;
   box-shadow:  rgba(0, 0, 0, 0.24) 0px 8px 8px;
@@ -61,4 +62,67 @@
   color: #8E8E8E;
   font-weight: bold;
   font-size: 15px;
+}
+
+.session-right {
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
+  height: 100%;
+}
+
+.session-buttons {
+  display: flex;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.session-edit-button {
+  text-transform: uppercase;
+  font-family: 'Inter', sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  color: #EF1652;
+  box-shadow: 1px 1px 1px 1px rgb(0 0 0 / 0.2);
+  height: 30px;
+  width: 100px;
+  border-radius: 10px;
+  margin-right: 5px;
+  border: none;
+}
+
+.session-cancel-button {
+  text-transform: uppercase;
+  font-family: 'Inter', sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: #EF1652;
+  height: 30px;
+  width: 100px;
+  border-radius: 10px;
+  margin-left: 5px;
+  border: none;
+}
+
+.session-participants {
+  display: flex;
+  margin-left: 80px; 
+  margin-top: 10px;
+}
+
+.session-user {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #EC1562;
+  margin-right: 5px;
 }

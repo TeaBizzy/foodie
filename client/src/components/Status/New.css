@@ -1,0 +1,20 @@
+.status-new {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #3AF87A;
+  height: 40px;
+  width: 130px;
+  border-radius: 10px;
+  margin-left: 80px;
+  margin-top: 10px;
+}
+
+.new-message {
+  text-transform: uppercase;
+  font-family: 'Inter', sans-serif;
+  color: white;
+  margin-left: 5px;
+  font-weight: bold;
+}
+
