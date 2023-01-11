@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+.card {
+  background-color: #FFFFFF;
+  border-radius: 25px;
+  width: 450px;
+  height: 800px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 8px 8px;
+  margin-top: 5rem;
+}
+
+.card-header {
+  background-color: #EC1562;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.restaurant-name {
+  color: #FFFFFF;
+  font-family: 'Inter';
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  height: 100%;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+.restaurant-img {
+  flex-shrink: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+}
