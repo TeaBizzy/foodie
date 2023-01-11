@@ -8,10 +8,10 @@ const Incomplete = () => {
     <div className="sessions-container">
       <div className="session">
         <div className="session-left">
-          <img className="session-image" src={pending} alt="restaurant image"></img>
+          <img className="session-image" src={pending} alt="pending"></img>
           <div className="restaurant-container">
             <div className="restaurant-details">
-              <span className="restaurant-name" style={{display: 'none'}}>Restaurant Name</span>
+              <span className="session-restaurant-name" style={{display: 'none'}}>Restaurant Name</span>
               <span className="restaurant-address" style={{display: 'none'}}>Restaurant Address</span>
             </div>
             <div className="session-details">

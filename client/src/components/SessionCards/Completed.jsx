@@ -8,10 +8,10 @@ const Completed = () => {
     <div className="sessions-container">
       <div className="session">
         <div className="session-left">
-          <img className="session-image" src={keg} alt="restaurant image"></img>
+          <img className="session-image" src={keg} alt="restaurant"></img>
           <div className="restaurant-container">
             <div className="restaurant-details">
-              <span className="restaurant-name">Restaurant Name</span>
+              <span className="session-restaurant-name">Restaurant Name</span>
               <span className="restaurant-address">Restaurant Address</span>
             </div>
             <div className="session-details">
