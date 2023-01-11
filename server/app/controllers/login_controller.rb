@@ -26,4 +26,8 @@ class LoginController < ApplicationController
     render json: user
   end
 
+  def logout
+    session[:current_user_id] = nil
+  end
+
 end

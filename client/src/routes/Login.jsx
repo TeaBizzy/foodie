@@ -42,6 +42,16 @@ const Login = (props) => {
 
     });
   }
+
+
+  function setLogout () {
+    axios({
+      method: 'post',
+      url: '/logout'
+    }).then(() => {
+        navigate("/login")
+    });
+  }
   return (
     <div className="container">
       <h1>Foodie</h1>
@@ -54,6 +64,7 @@ const Login = (props) => {
         <button onClick={() => setLogin()}  className="login-button">Login</button>
         <span className="registration-prompt">Not a member?</span>
         <button onClick={() => window.location.replace('/register')} className="register-button">Register</button>
+        <button onClick={() =>setLogout()} className="register-button">logout</button>
       </div>
     </div>
   )

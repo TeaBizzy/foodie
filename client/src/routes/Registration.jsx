@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React from 'react'
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import "../components/Registration.css"
 
 
@@ -13,6 +14,7 @@ const Registration = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   // Handling the name change
   const handleFirstName = (e) => {
@@ -53,8 +55,9 @@ const Registration = () => {
       },
       baseURL: "http://localhost:3000"
     }).then((response) => {
-      if (response.status === 200) {
+      if (response.data.id) {
         console.log(response.data);
+        navigate('/login')
       } else {
         setError(response.data[0])
       }

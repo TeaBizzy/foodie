@@ -7,8 +7,16 @@ import axios from "axios";
 
 function App() {
   const [LoggedUser, setLoggedUser] = useState('');
+  function setLogout () {
+    axios({
+      method: 'post',
+      url: '/logout'
+    }).then(() => {
+        navigate("/login")
+    });
+  }
   const navigate = useNavigate();
-
+ //ONLY WANT TO RUN ONCE 
   useEffect(() => {
     
     axios({
@@ -17,7 +25,7 @@ function App() {
     }).then((response)=> {
       setLoggedUser(response.data)
       navigate('/')
-    })
+    }).catch((err) => {console.log(err)})
 
   }, []);
   return (
@@ -28,7 +36,7 @@ function App() {
       />} />
       <Route path = "/" element={
          <ProtectedRoute user={LoggedUser}>
-        <p>HOME</p>
+                <button onClick={() =>setLogout()} className="register-button">logout</button>
       </ProtectedRoute>
       }>
       </Route>
