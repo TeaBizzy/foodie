@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   get 'examples/index'
 
-  get 'test', to: 'login#test'
-
   get 'signed_on', to: 'login#is_logged_in'
 
   post 'logout', to: 'login#logout'
@@ -10,7 +8,7 @@ Rails.application.routes.draw do
   
   # Defines the root path route ("/")
   # root "articles#index"
-  resources :login, only: [:create, :logout]
+  resources :login, only: [:create]
   resources :restaurants, only: [:index]
   resources :users, only: [:create, :index]
   resources :examples, only: [:index]
