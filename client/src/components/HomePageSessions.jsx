@@ -1,6 +1,6 @@
 import React from 'react'
 import keg from "../assets/keg.jpg"
-import New from "./Status/New"
+import Finished from "./Status/Finished"
 import "./HomePageSessions.css"
 
 const HomePageSessions = () => {
@@ -20,7 +20,7 @@ const HomePageSessions = () => {
           </div>
         </div>
         <div className="session-right">
-          <New />
+          <Finished />
           <div className="session-participants">
             <span className="session-user"></span>
             <span className="session-user"></span>
