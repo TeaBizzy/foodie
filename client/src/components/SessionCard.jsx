@@ -1,9 +1,9 @@
 import React from 'react'
 import keg from "../assets/keg.jpg"
 import Finished from "./Status/Finished"
-import "./HomePageSessions.css"
+import "./SessionCard.css"
 
-const HomePageSessions = () => {
+const SessionCard = () => {
   return (
     <div className="sessions-container">
       <div className="session">
@@ -36,4 +36,4 @@ const HomePageSessions = () => {
   )
 }
 
-export default HomePageSessions
+export default SessionCard
