@@ -7,15 +7,13 @@ import "../components/Home.css"
 
 const Home = () => {
   return (
-    <>
-    <Navbar />
     <div className="home-container">
+      <Navbar />
       <div className="add-button">
-        <FaPlusSquare size={60} style={{color: 'white', backgroundColor: '#EC1652', height: '100', width: '60%', borderRadius: '20px'}}/>
+        <FaPlusSquare size={60} style={{color: 'white', backgroundColor: '#EC1652', height: '100', width: '95%', borderRadius: '20px'}}/>
       </div>
       <HomePageSessions />
     </div>
-    </>
   )
 }
 

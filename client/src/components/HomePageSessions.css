@@ -1,22 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter&family=Lobster&family=Quicksand&display=swap');
+
 .sessions-container {
   display: flex;
   justify-content: center;
+}
+
+.session {
+  display: flex;
   align-items: center;
   height: 150px;
+  border-radius: 30px;
+  box-shadow:  rgba(0, 0, 0, 0.24) 0px 8px 8px;
+  width: 95%;
+  margin-top: 10px;
+}
+
+.session-left {
+  display: flex;
 }
 
 .restaurant-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  margin-left: 10px;
 }
 
 .restaurant-details {
   display: flex;
   flex-direction: column;
+  margin-bottom: 65px;
 }
 
 .session-details {
   display: flex;
   flex-direction: column;
+}
+
+.session-image {
+  display: flex;
+  width: 150px;
+  height: 150px;
+  border-radius: 30px;
+}
+
+.restaurant-name {
+  font-family: 'Inter', sans-serif;
+  color: #8E8E8E;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.restaurant-address {
+  font-family: 'Inter', sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.session-date {
+  font-family: 'Inter', sans-serif;
+  color: #8E8E8E;
+  font-weight: bold;
+  font-size: 15px;
 }
