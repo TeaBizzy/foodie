@@ -1,4 +1,5 @@
 import { Route, Routes,useNavigate } from "react-router-dom"
+import Home from "./routes/Home"
 import Registration from './routes/Registration';
 import Login from './routes/Login';
 import { useState, useEffect } from 'react';
@@ -49,7 +50,7 @@ function App() {
         LoggedUser={LoggedUser}
         setLoggedUser={setLoggedUser}
       />} />
-      <Route path="/" element={<LocationDetails />}/>
+      <Route path="/" element={<Home />}/>
   
       <Route path="/create" element={<Create />} />
       <Route path="/swiping" element={<Swipping />} />

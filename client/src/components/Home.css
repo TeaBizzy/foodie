@@ -1,0 +1,10 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-button {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}

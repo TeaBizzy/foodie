@@ -14,7 +14,7 @@ const Create = () => {
         <DateDetails />
         <LocationDetails />
         <ParticipantDetails />
-        <div className="session-buttons">
+        <div className="create-session-buttons">
           <button className="start-button">Start</button>
           <button className="cancel-button">Cancel</button>
         </div>
