@@ -22,11 +22,12 @@ function Swipping() {
     })
   }, [])
 
-  const restaurantCards = restaurants.map((restaurant) => {
+  const restaurantCards = restaurants.map((restaurant, idx) => {
     const {name, address, phone_number, website, rating, img_url} = restaurant
     
     return (
-      <RestaurantCard 
+      <RestaurantCard
+        key={idx}
         name={name}
         address={address}
         phone_number={phone_number}
