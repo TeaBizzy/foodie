@@ -1,5 +1,5 @@
 import React from "react";
-import '../components/RestaurantCard.css';
+import '../styles/RestaurantCard.css';
 
 function RestaurantCard(props) {
   const {name, address, phone_number, website, rating, img_url} = props
