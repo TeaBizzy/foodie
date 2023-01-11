@@ -1,20 +1,45 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
 import '../components/Swiping.css'
+import RestaurantCard from '../components/RestaurantCard'
+
+
 
 function Swipping() {
+  const [restaurants, setRestaurants] = useState([]);
+
+  useEffect(() => {
+    axios.get('http://localhost:3000/restaurants')
+    .then(res => {
+      console.log(res.data)
+      setRestaurants(res.data)
+    })
+    .catch(err => {
+      console.log(err);
+    })
+  }, [])
+
+  const restaurantCards = restaurants.map((restaurant) => {
+    const {name, address, phone_number, website, rating, img_url} = restaurant
+    
+    return (
+      <RestaurantCard 
+        name={name}
+        address={address}
+        phone_number={phone_number}
+        website={website}
+        rating={rating}
+        img_url={img_url}
+      />
+    )
+  })
+
   return (
     <div>
       <Navbar />
       <section>
-        <div className='card'>
-          <div className='card-header restaurant-name'>
-            <span className='restaurant-name'><strong>RESTAURANT NAME</strong></span>
-          </div>
-          <div className='img-container'>
-            <img className='restaurant-img' src='https://lh3.googleusercontent.com/places/AJDFj403wfy30LdMGcdMbsDzZi2PFJACPVuHKqufXiw3WeC1vVz-07Y993VQKzDC_dMETHmdJcQJJUlf92VDjD0v8zm0-IaVr0gazuQ=s1600-w600' />
-          </div>
-        </div>
+        {restaurantCards}
       </section>
     </div>
   );
