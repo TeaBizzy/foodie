@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import '../styles/RestaurantCard.css';
-import { FaStar, FaStarHalf } from 'react-icons/fa';
+import { FaStar, FaStarHalf, FaMapMarkerAlt, FaPhoneAlt, FaGlobeAmericas } from 'react-icons/fa';
 
 function RestaurantCard(props) {
   const {name, address, phone_number, website, rating, img_url} = props;
@@ -40,11 +40,16 @@ function RestaurantCard(props) {
         <img className={'restaurant-img'} src={img_url} />
       </div>
       <div className={`${displayDetails ? 'details-container' : 'hidden'}`}>
-        <div>{generateRating(rating)}</div>
-        <div>{address}</div>
-        <div>6.2km</div>
-        <div>PHONE ICON{phone_number}</div>
-        <div>{website}</div>
+        <div className="detail">{generateRating(rating)}</div>
+        <div className="detail">
+          <FaMapMarkerAlt size={24} style={{color: '#EC1562', marginRight: '0.5em'}}/> {address}
+        </div>
+        <div className="detail">
+          <FaPhoneAlt size={24} style={{color: '#EC1562', marginRight: '0.5em'}}/> {phone_number}
+        </div>
+        <div className="detail">
+          <FaGlobeAmericas size={24} style={{color: '#EC1562', marginRight: '0.5em'}}/> {website ? <a href={website} target='_blank'>{website}</a> : 'None'}
+        </div>
       </div>
     </div>
   )

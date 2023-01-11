@@ -53,8 +53,8 @@ function Swipping() {
         {restaurantCards[currentCardIdx]}
       </section>
       <section>
-        <FaTimesCircle size={120} style={{color: '#EC1562'}} onClick={() => onSwipe(false)} />
-        <FaCheckCircle size={120} style={{color: '#3AF87A'}} onClick={() => onSwipe(true)} />
+        <FaTimesCircle size={120} className='buttons' style={{color: '#EC1562'}} onClick={() => onSwipe(false)} />
+        <FaCheckCircle size={120} className='buttons' style={{color: '#3AF87A'}} onClick={() => onSwipe(true)} />
       </section>
     </div>
   );

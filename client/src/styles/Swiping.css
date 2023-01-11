@@ -1,8 +1,14 @@
 section {
   display: flex;
   justify-content: center;
-  margin-top: 5rem;
   height: calc(800px + 3rem);
   padding-top: 3rem;
   padding-bottom: 3rem;
+}
+
+.buttons {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
