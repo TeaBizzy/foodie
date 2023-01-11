@@ -1,0 +1,17 @@
+.set-distance {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.distance-labels {
+  width: 320px;
+  font-family: 'Quicksand', sans-serif;
+  color: #8E8E8E;
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: -5px;
+  margin-bottom: -10px;
+}

@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter&family=Lobster&family=Quicksand&display=swap');
+@import url('https://cdn.syncfusion.com/ej2/material.css');
+
+.participant-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.participants-h1 {
+  font-family: 'Inter', sans-serif;
+  font-weight: bold;
+  font-size: 40px;
+  text-transform: uppercase;
+  margin-bottom: 0px;
+  color: #EC1562;
+}
+
+.participant-selection {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+
+.users {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.user-self {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  color: #FFFFFF;
+  background-color: #EC1562;
+  margin-right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 4px;
+}

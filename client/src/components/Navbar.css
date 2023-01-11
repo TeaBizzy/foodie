@@ -8,7 +8,7 @@
   box-shadow: rgba(0, 0, 0, 0.24) 0px 8px 8px;
 }
 
-h1 {
+.navbar-h1 {
   margin-left: 20px;
   font-family: 'Lobster', cursive;
   font-size: 40px;
