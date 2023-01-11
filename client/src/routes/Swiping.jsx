@@ -1,13 +1,15 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
-import Navbar from '../components/Navbar'
-import '../components/Swiping.css'
-import RestaurantCard from '../components/RestaurantCard'
-
-
+import React, { useEffect, useState } from 'react';
+import Navbar from '../components/Navbar';
+import '../components/Swiping.css';
+import RestaurantCard from '../components/RestaurantCard';
+import { FaTimesCircle, FaCheckCircle } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 function Swipping() {
   const [restaurants, setRestaurants] = useState([]);
+  const [currentCardIdx, setCurrentCardIdx] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios.get('http://localhost:3000/restaurants')
@@ -35,11 +37,23 @@ function Swipping() {
     )
   })
 
+  function onSwipe(isApproved) {
+    if(currentCardIdx !== restaurants.length - 1) {
+      setCurrentCardIdx(prev => prev + 1)
+    } else {
+      navigate('/')
+    } 
+  }
+
   return (
     <div>
       <Navbar />
       <section>
-        {restaurantCards}
+        {restaurantCards[currentCardIdx]}
+      </section>
+      <section>
+        <FaTimesCircle size={120} style={{color: '#EC1562'}} onClick={() => onSwipe(false)} />
+        <FaCheckCircle size={120} style={{color: '#3AF87A'}} onClick={() => onSwipe(true)} />
       </section>
     </div>
   );
