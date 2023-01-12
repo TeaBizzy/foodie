@@ -1,36 +1,42 @@
 import React from 'react'
-import pending from "../../assets/pending.png"
 import Finished from "../Status/Finished"
 import NewStatus from "../Status/NewStatus"
 import Pending from "../Status/Pending"
 import "./SessionCard.css"
+import formatReservation from '../../helpers/ReservationFormatter';
+import { FaQuestionCircle } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom'
 
-const SessionCard = (props) => {
+export default function SessionCard(props) {
+  const { status, reservation, invitedUsers, restaurant, sessionId } = props;
+  const navigate = useNavigate();
+
   return (
-    <div className="sessions-container">
-      <div className="session">
+    <div className="session" onClick={() => navigate(`/swiping/:${sessionId}`)}>
         <div className="session-left">
-          <img className="session-image" src={props.image ? props.image : pending} alt="restaurant"></img>
+          {restaurant ? 
+            <img className="session-image" src={restaurant.img_url} alt="restaurant" /> :
+            <FaQuestionCircle size={120} style={{color: '#EC1562'}} />
+          }
           <div className="restaurant-container">
             <div className="restaurant-details">
-              {props.name && <span className="session-restaurant-name">{props.name}</span>}
-              {!props.name && <span className="session-restaurant-name" style={{display: 'none'}}></span>}
-              {props.address && <span className="restaurant-address">{props.address}</span>}
-              {!props.address && <span className="restaurant-address" style={{display: 'none'}}></span>}
+              {restaurant && <span className="session-restaurant-name">{restaurant.name}</span>}
+              {restaurant && <span className="restaurant-address">{restaurant.address}</span>}
             </div>
             <div className="session-details">
-              <span className="session-date">{props.date}</span>
+              <span className="session-date">{formatReservation(reservation)}</span>
             </div>
           </div>
         </div>
         <div className="session-right">
-          {props.state === "New" && <NewStatus />}
-          {props.state === "Pending" && <Pending />}
-          {props.state === "Finished" && <Finished />}
+          {status === 0 && <NewStatus />}
+          {status === 1 && <Pending />}
+          {status === 2 && <Finished />}
           <div className="session-participants">
-            <span className="session-user"></span>
-            <span className="session-user"></span>
-            <span className="session-user"></span>
+            {/* Use map for now incase we gett to invite multiple users. */}
+            {invitedUsers.map((user, idx) => 
+              <img key={idx} src={user.img_url} alt='user profile img' className='session-user'/>
+            )}
           </div>
           <div className="session-buttons">
             <button className="session-edit-button">Edit</button>
@@ -38,8 +44,5 @@ const SessionCard = (props) => {
           </div>
         </div>
       </div>
-    </div>
   )
 }
-
-export default SessionCard

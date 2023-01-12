@@ -1,6 +1,5 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import Navbar from '../components/Navbar';
 import '../styles/Swiping.css';
 import RestaurantCard from '../components/RestaurantCard';
 import { FaTimesCircle, FaCheckCircle } from 'react-icons/fa';
@@ -48,7 +47,6 @@ function Swipping() {
 
   return (
     <div>
-      <Navbar />
       <section>
         {restaurantCards[currentCardIdx]}
       </section>

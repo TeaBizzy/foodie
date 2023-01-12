@@ -4,6 +4,8 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { maximum: 75 }, uniqueness: true
   validates :password, length: { minimum: 8 }
   has_secure_password
+  has_many :user_sessions
+  has_many :sessions, through: :user_sessions
 
   def self.authenticate_with_credentials(email,password)
     if(email)
@@ -19,5 +21,4 @@ class User < ApplicationRecord
 
   end
 
-  has_many :sessions, through: :user_sessions
 end
