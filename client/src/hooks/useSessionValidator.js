@@ -2,7 +2,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-export default function ProtectedRoute() {
+export default function useSessionValidator() {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
   const location = useLocation();
@@ -18,7 +18,7 @@ export default function ProtectedRoute() {
         setUser(null);
         navigate('/login')
       })
-  }, [])
+  })
 
   return { user }
 };
