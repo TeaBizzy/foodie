@@ -1,26 +1,32 @@
 import React from 'react'
 import pending from "../../assets/pending.png"
+import Finished from "../Status/Finished"
+import NewStatus from "../Status/NewStatus"
 import Pending from "../Status/Pending"
 import "./SessionCard.css"
 
-const Incomplete = () => {
+const SessionCard = (props) => {
   return (
     <div className="sessions-container">
       <div className="session">
         <div className="session-left">
-          <img className="session-image" src={pending} alt="pending"></img>
+          <img className="session-image" src={props.image ? props.image : pending} alt="restaurant"></img>
           <div className="restaurant-container">
             <div className="restaurant-details">
-              <span className="session-restaurant-name" style={{display: 'none'}}>Restaurant Name</span>
-              <span className="restaurant-address" style={{display: 'none'}}>Restaurant Address</span>
+              {props.name && <span className="session-restaurant-name">{props.name}</span>}
+              {!props.name && <span className="session-restaurant-name" style={{display: 'none'}}></span>}
+              {props.address && <span className="restaurant-address">{props.address}</span>}
+              {!props.address && <span className="restaurant-address" style={{display: 'none'}}></span>}
             </div>
             <div className="session-details">
-              <span className="session-date" style={{marginTop: '55px'}}>Session Date</span>
+              <span className="session-date">{props.date}</span>
             </div>
           </div>
         </div>
         <div className="session-right">
-          <Pending />
+          {props.state === "New" && <NewStatus />}
+          {props.state === "Pending" && <Pending />}
+          {props.state === "Finished" && <Finished />}
           <div className="session-participants">
             <span className="session-user"></span>
             <span className="session-user"></span>
@@ -36,4 +42,4 @@ const Incomplete = () => {
   )
 }
 
-export default Incomplete
+export default SessionCard
