@@ -9,7 +9,6 @@ import "../components/Create.css"
 const Create = () => {
   return (
     <div>
-      <Navbar />
       <div className="session-details">
         <DateDetails />
         <LocationDetails />
