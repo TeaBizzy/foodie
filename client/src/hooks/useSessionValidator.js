@@ -14,7 +14,10 @@ export default function ProtectedRoute() {
 
     axios('http://localhost:3000/signed_on', {withCredentials: true})
       .then(res => setUser(res.data))
-      .catch(err => navigate('/login'))
+      .catch((err) => {
+        setUser(null);
+        navigate('/login')
+      })
   }, [])
 
   return { user }
