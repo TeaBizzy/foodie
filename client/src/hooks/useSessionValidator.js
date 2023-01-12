@@ -8,7 +8,7 @@ export default function ProtectedRoute() {
   const location = useLocation();
 
   useEffect(() => {
-    if (user && (location.pathname === '/login' || location.pathname === '/register')) {
+    if (location.pathname === '/login' || location.pathname === '/register') {
       return;
     }
 
