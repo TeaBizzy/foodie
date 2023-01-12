@@ -17,7 +17,8 @@ const Registration = (props) => {
   const navigate = useNavigate();
 
   const { user } = props
-
+  
+  // Redirects the user if they are already logged in.
   useEffect(() => {
     if(user) {
       navigate('/')
