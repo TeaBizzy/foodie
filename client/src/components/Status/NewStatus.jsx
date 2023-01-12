@@ -1,10 +1,10 @@
 import React from 'react'
 import { FaPizzaSlice } from 'react-icons/fa'
 
-import "./New.css"
+import "./NewStatus.css"
 
 
-const New = () => {
+const NewStatus = () => {
   return (
     <div className="status-new">
       <span className="new-message">New</span>
@@ -13,4 +13,4 @@ const New = () => {
   )
 }
 
-export default New
+export default NewStatus
