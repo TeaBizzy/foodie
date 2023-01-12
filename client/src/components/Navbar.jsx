@@ -9,7 +9,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   
   function logout() {
-    axios('http://localhost:3000/logout', {withCredentials: true})
+    axios('http://localhost:3000/logout', {method: 'post', withCredentials: true})
       .then(navigate('/login'))
   }
 
