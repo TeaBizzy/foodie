@@ -3,42 +3,47 @@ import React, { useEffect, useState } from 'react';
 import '../styles/Swiping.css';
 import RestaurantCard from '../components/RestaurantCard';
 import { FaTimesCircle, FaCheckCircle } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 function Swipping() {
-  const [restaurants, setRestaurants] = useState([]);
+  const [session, setSession] = useState({restaurants: []});
   const [currentCardIdx, setCurrentCardIdx] = useState(0);
   const navigate = useNavigate();
-
+  const { session_id } = useParams();
+  
   useEffect(() => {
-    axios.get('http://localhost:3000/restaurants')
+    axios.get(`http://localhost:3000/session_restaurants/${session_id}`, {withCredentials: true})
     .then(res => {
-      console.log(res.data)
-      setRestaurants(res.data)
+      setSession(res.data)
     })
     .catch(err => {
       console.log(err);
     })
   }, [])
 
-  const restaurantCards = restaurants.map((restaurant, idx) => {
-    const {name, address, phone_number, website, rating, img_url} = restaurant
-    
-    return (
-      <RestaurantCard
-        key={idx}
-        name={name}
-        address={address}
-        phone_number={phone_number}
-        website={website}
-        rating={rating}
-        img_url={img_url}
-      />
-    )
-  })
+  useEffect(() => {
+    if(currentCardIdx === currentCardIdx.length - 1) {
+      navigate('/')
+    }
+  }, [currentCardIdx])
+
+    const restaurantCards = session.restaurants.map((restaurant) => {
+      
+      return (
+        <RestaurantCard
+          key={restaurant.id}
+          name={restaurant.name}
+          address={restaurant.address}
+          phone_number={restaurant.phone_number}
+          website={restaurant.website}
+          rating={restaurant.rating}
+          img_url={restaurant.img_url}
+        />
+      )
+    })
 
   function onSwipe(isApproved) {
-    if(currentCardIdx !== restaurants.length - 1) {
+    if(currentCardIdx !== session.restaurants.length - 1) {
       setCurrentCardIdx(prev => prev + 1)
     } else {
       navigate('/')
