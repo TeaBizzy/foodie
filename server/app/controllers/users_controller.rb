@@ -37,17 +37,13 @@ class UsersController < ApplicationController
     # Returns a random user image url.
     def get_random_img
       imgs = [
-        'https://imgur.com/xBu564e',
-        'https://imgur.com/avMgDEG',
-        'https://imgur.com/6U9WNtQ',
-        'https://imgur.com/oHajDVW',
-        'https://imgur.com/Hpa47PC',
-        'https://imgur.com/GvDavl9',
-        'https://imgur.com/JJCFZEc',
-        'https://imgur.com/bVrBJ3i',
-        'https://imgur.com/vMY7lhj',
-        'https://imgur.com/Igx6E8H',
-        'https://imgur.com/YNVkpBM'
+        'https://i.imgur.com/avMgDEG.png',
+        'https://i.imgur.com/vMY7lhj.png',
+        'https://i.imgur.com/6U9WNtQ.png',
+        'https://i.imgur.com/bVrBJ3i.png',
+        'https://i.imgur.com/AK54oyB.png',
+        'https://i.imgur.com/JJCFZEc.png',
+        'https://i.imgur.com/AK54oyB.png',
       ]
 
       imgs[rand(imgs.length)]
