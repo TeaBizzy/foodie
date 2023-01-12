@@ -1,15 +1,19 @@
-import { Route, Routes,useNavigate } from "react-router-dom"
+import { Route, Routes, useNavigate } from "react-router-dom"
 import Home from "./routes/Home"
 import Registration from './routes/Registration';
 import Login from './routes/Login';
-import { useState, useEffect } from 'react';
-import ProtectedRoute from './routes/ProtectedRoute'
+import { useState } from 'react';
 import axios from "axios";
 import Create from "./routes/Create";
 import Swipping from './routes/Swiping';
+import useSessionValidator from './hooks/useSessionValidator';
+import Navbar from "./components/Navbar";
 
 function App() {
-  const [LoggedUser, setLoggedUser] = useState('');
+  const navigate = useNavigate();
+
+  const { user } = useSessionValidator();
+
   function setLogout () {
     axios({
       method: 'post',
@@ -18,42 +22,18 @@ function App() {
         navigate("/login")
     });
   }
-  const navigate = useNavigate();
- //ONLY WANT TO RUN ONCE 
-  useEffect(() => {
-    
-    axios({
-      method: 'get',
-      url: '/signed_on',
-    }).then((response)=> {
-      setLoggedUser(response.data)
-      navigate('/')
-    }).catch((err) => {console.log(err)})
 
-  }, []);
   return (
-    <Routes>
-      <Route path="/register" element={<Registration
-        LoggedUser={LoggedUser}
-        setLoggedUser={setLoggedUser}
-      />} />
-      <Route path = "/test" element={
-         <ProtectedRoute user={LoggedUser}>
-                <button onClick={() =>setLogout()} className="register-button">logout</button>
-      </ProtectedRoute>
-      }>
-      </Route>
-      
-
-      <Route path="/login" element={<Login
-        LoggedUser={LoggedUser}
-        setLoggedUser={setLoggedUser}
-      />} />
-      <Route path="/" element={<Home />}/>
-  
-      <Route path="/create" element={<Create />} />
-      <Route path="/swiping" element={<Swipping />} />
-    </Routes>
+    <>
+      {user && <Navbar />}
+      <Routes>
+        <Route path="/register" element={<Registration user={user} />} />
+        <Route path="/login" element={<Login user={user} />} />
+        <Route path="/" element={<Home />}/>
+        <Route path="/create" element={<Create />} />
+        <Route path="/swiping" element={<Swipping />} />
+      </Routes>
+    </>
   );
 }
 
