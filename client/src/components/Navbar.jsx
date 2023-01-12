@@ -16,7 +16,7 @@ function Navbar(props) {
 
   return (
     <div className="header">
-      <h1 className="navbar-h1">Foodie</h1>
+      <h1 className="navbar-h1"><a href='/'>Foodie</a></h1>
       <div className='user'>
         <img src={userImg} className='user-icon' />
         <FaSignOutAlt size={40} style={{color: '#EC1562'}} onClick={() => logout()}/>
