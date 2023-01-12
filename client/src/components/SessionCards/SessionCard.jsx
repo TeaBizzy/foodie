@@ -12,7 +12,7 @@ export default function SessionCard(props) {
   const navigate = useNavigate();
 
   return (
-    <div className="session" onClick={() => navigate(`/swiping`, {sessionId})}>
+    <div className="session" onClick={() => navigate(`/swiping/:${sessionId}`)}>
         <div className="session-left">
           {restaurant ? 
             <img className="session-image" src={restaurant.img_url} alt="restaurant" /> :
