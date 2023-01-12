@@ -15,7 +15,7 @@ const Create = () => {
         <ParticipantDetails />
         <div className="create-session-buttons">
           <button className="start-button">Start</button>
-          <button className="cancel-button">Cancel</button>
+          <a href='/'><button className="cancel-button">Cancel</button></a>
         </div>
       </div>
     </div>
