@@ -1,44 +1,39 @@
-import React from 'react'
-import Navbar from "../components/Navbar"
+import React, { useState, useEffect } from 'react'
 import { FaPlusSquare } from "react-icons/fa"
 import SessionCard from "../components/SessionCards/SessionCard"
-
-
 import "../components/Home.css"
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom'
 
-const mockedData = [
-  {
-    state: "New",
-  },
-  {
-    state: "Pending",
-  },
-  {
-    name: "Card",
-    address: "Some Address",
-    date: "Some Date",
-    image: "google.com",
-    state: "Finished",
-  },
-];
+export default function Home(props) {
+  const { user } = props;
+  const [sessions, setSessions] = useState([]);
+  const navigate = useNavigate();
 
-const Home = () => {
+  useEffect(() => {
+    if(!user) return
+    axios(`http://localhost:3000/user_session_data/${user.id}`)
+      .then((res) => {
+        setSessions(res.data)
+      })
+      .catch(err => console.log(err))
+  }, [])
+
   return (
     <div className="home-container">
-      <a href='/create'>
-        <button className="add-button">
-          <FaPlusSquare size={60} style={{color: 'white', backgroundColor: '#EC1652', height: '100', width: '95%', borderRadius: '20px'}}/>
-        </button>
-      </a>
-      {mockedData.map((data) => <SessionCard 
-      name={data.name}
-      address={data.address} 
-      date={data.date} 
-      image={data.image} 
-      state={data.state} 
-      />)}
+      <button className="add-button" onClick={() => navigate('/create')}>
+        <FaPlusSquare size={60} style={{color: 'white', backgroundColor: '#EC1652', height: '100', width: '95%', borderRadius: '20px'}}/>
+      </button>
+      <div className="sessions-container">
+        {sessions.map((session, idx) => <SessionCard 
+          key={idx}
+          sessionId={session.session_id}
+          reservation={session.reservation}
+          status={session.status}
+          restaurant={session.restaurant}
+          invitedUsers={session.invited_users}
+        />)}
+      </div>
     </div>
   )
 }
-
-export default Home
