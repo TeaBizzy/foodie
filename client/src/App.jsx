@@ -19,7 +19,7 @@ function App() {
           {user && <>
               <Route path="/" element={<Home user={user}/>}/>
               <Route path="/create" element={<Create />} /> 
-              <Route path="/swiping" element={<Swipping />} />
+              <Route path="/swiping/:session_id" element={<Swipping />} />
             </>}
         </Routes>
     </>
