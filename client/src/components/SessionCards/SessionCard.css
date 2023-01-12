@@ -1,10 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter&family=Lobster&family=Quicksand&display=swap');
 
-.sessions-container {
-  display: flex;
-  justify-content: center;
-}
-
 .session {
   display: flex;
   align-items: center;
@@ -14,6 +9,7 @@
   box-shadow:  rgba(0, 0, 0, 0.24) 0px 8px 8px;
   width: 95%;
   margin-top: 10px;
+  cursor: pointer;
 }
 
 .session-left {

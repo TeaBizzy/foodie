@@ -29,13 +29,28 @@ user5 = User.create(first_name: 'Rahim', last_name: 'Jamal', email: 'rahimj2196@
 ## Create Sessions.
 puts "Creating Sessions"
 Session.destroy_all
+UserSession.destroy_all
 
+# New Session
 session1 = Session.create(reservation: '20/01/2023 6:00 PM'.to_time)
+user_session1 = UserSession.create(session_id: session1.id, user_id: user4.id, status: 0)
+user_session2 = UserSession.create(session_id: session1.id, user_id: user3.id, status: 0)
+
+# Finished Session
+session2 = Session.create(reservation: '30/01/2023 12:00 PM'.to_time)
+user_session3 = UserSession.create(session_id: session2.id, user_id: user4.id, status: 2)
+user_session4 = UserSession.create(session_id: session2.id, user_id: user5.id, status: 2)
+
+# Pending Session
+session3 = Session.create(reservation: '19/01/2023 10:00 AM'.to_time)
+user_session5 = UserSession.create(session_id: session3.id, user_id: user4.id, status: 1)
+user_session6 = UserSession.create(session_id: session3.id, user_id: user1.id, status: 0)
 
 ## Create Restaurants.
 puts "Creating Restaurants"
 Restaurant.destroy_all
 OperatingTime.destroy_all
+Swipe.destroy_all
 
 restaurant1 = Restaurant.create(
   name: 'Table For 2 Steak House', 
@@ -45,7 +60,8 @@ restaurant1 = Restaurant.create(
   lng: -79.8708408,
   rating: 4.6, 
   img_url: 'https://lh3.googleusercontent.com/places/AJDFj424Pf9cvnEGZjwCIs9iaDpfg5-tMzhzM0zSCCgSiflEo4ylSJtFWdC11K_p18knW_PAWtTQHJA608AnfrmbRl_tpJhQugsMsQ=s1600-w600', 
-  website: nil
+  website: nil,
+  session_id: session1.id
 )
 
 operating_time1 = OperatingTime.create(restaurant_id: restaurant1.id, day: 1, open: "16:00".to_time, close: "21:00".to_time)
@@ -63,7 +79,8 @@ restaurant2 = Restaurant.create(
   lng: -79.871115,
   rating: 3.9, 
   img_url: 'https://lh3.googleusercontent.com/places/AJDFj41X_9FHXBmAFrfqsv_7st7znqpnnIucd106LDuUy9VXXajZElVttURgL4khHuRkn4spGewleGGUJ9XvX5575cqTGstm1tfmpbg=s1600-w600', 
-  website: 'https://barandgrillalliston.ca/'
+  website: 'https://barandgrillalliston.ca/',
+  session_id: session1.id
 )
 
 operating_time1 = OperatingTime.create(restaurant_id: restaurant2.id, day: 1, open: "11:00".to_time, close: "00:00".to_time)
@@ -82,8 +99,12 @@ restaurant3 = Restaurant.create(
   lng: -79.8712681,
   rating: 4.6, 
   img_url: 'https://lh3.googleusercontent.com/places/AJDFj42AIApvMhcvsQVSu_ttzBCS-Q1RtG1EqFlhvcPMzjA1R2u7owdtAT-InCaUk1UD7OqJ6qSApHtTDpzyvjXtzR8kQM8kiVwR-Ro=s1600-w600', 
-  website: 'http://www.taqueriaelnorte.com/'
+  website: 'http://www.taqueriaelnorte.com/',
+  session_id: session2.id
 )
+
+swipe1 = Swipe.create(restaurant_id: restaurant3.id, is_approved: true)
+swipe2 = Swipe.create(restaurant_id: restaurant3.id, is_approved: true)
 
 operating_time1 = OperatingTime.create(restaurant_id: restaurant3.id, day: 1, open: "11:00".to_time, close: "20:00".to_time)
 operating_time2 = OperatingTime.create(restaurant_id: restaurant3.id, day: 2, open: "11:00".to_time, close: "20:00".to_time)
@@ -100,8 +121,11 @@ restaurant4 = Restaurant.create(
   lng: -79.4006612,
   rating: 4.7, 
   img_url: 'https://lh3.googleusercontent.com/places/AJDFj42k7_35K5Fngf6uYFbS8-BJhUKnuMlz5DV5yiV_39C91qMguitgicQmpUFOXt87iOBAFjtofKE43rbt5mnvW3ER8ThGYkG1FG8=s1600-w600', 
-  website: 'http://www.sara.restaurant/'
+  website: 'http://www.sara.restaurant/',
+  session_id: session3.id
 )
+
+swipe3 = Swipe.create(restaurant_id: restaurant4.id, is_approved: false)
 
 operating_time1 = OperatingTime.create(restaurant_id: restaurant4.id, day: 2, open: "17:00".to_time, close: "22:30".to_time)
 operating_time2 = OperatingTime.create(restaurant_id: restaurant4.id, day: 3, open: "17:00".to_time, close: "22:30".to_time)
@@ -117,8 +141,11 @@ restaurant5 = Restaurant.create(
   lng: -79.3997519,
   rating: 4.4, 
   img_url: 'https://lh3.googleusercontent.com/places/AJDFj403wfy30LdMGcdMbsDzZi2PFJACPVuHKqufXiw3WeC1vVz-07Y993VQKzDC_dMETHmdJcQJJUlf92VDjD0v8zm0-IaVr0gazuQ=s1600-w600', 
-  website: 'https://www.theburgerspriest.com/'
+  website: 'https://www.theburgerspriest.com/',
+  session_id: session3.id
 )
+
+swipe3 = Swipe.create(restaurant_id: restaurant5.id, is_approved: true)
 
 operating_time2 = OperatingTime.create(restaurant_id: restaurant5.id, day: 1, open: "11:00".to_time, close: "00:00".to_time)
 operating_time3 = OperatingTime.create(restaurant_id: restaurant5.id, day: 2, open: "11:00".to_time, close: "00:00".to_time)

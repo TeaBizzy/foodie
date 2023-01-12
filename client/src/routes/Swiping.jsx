@@ -48,7 +48,6 @@ function Swipping() {
 
   return (
     <div>
-      <Navbar />
       <section>
         {restaurantCards[currentCardIdx]}
       </section>

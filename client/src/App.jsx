@@ -13,13 +13,15 @@ function App() {
   return (
     <>
       {user && <Navbar userImg={user.img_url}/>}
-      <Routes>
-        <Route path="/register" element={<Registration user={user} />} />
-        <Route path="/login" element={<Login user={user} />} />
-        <Route path="/" element={<Home />}/>
-        <Route path="/create" element={<Create />} />
-        <Route path="/swiping" element={<Swipping />} />
-      </Routes>
+        <Routes>
+          <Route path="/register" element={<Registration user={user} />} />
+          <Route path="/login" element={<Login user={user} />} />
+          {user && <>
+              <Route path="/" element={<Home user={user}/>}/>
+              <Route path="/create" element={<Create />} /> 
+              <Route path="/swiping" element={<Swipping />} />
+            </>}
+        </Routes>
     </>
   );
 }
