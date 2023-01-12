@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "../components/Login.css"
 import axios from 'axios'
 import { useState } from 'react';
@@ -8,6 +8,14 @@ const Login = (props) => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const { user } = props
+
+  useEffect(() => {
+    if(user) {
+      navigate('/')
+    }
+  })
 
   const handleEmail = (e) => {
     setEmail(e.target.value);

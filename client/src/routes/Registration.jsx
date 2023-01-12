@@ -1,13 +1,13 @@
 import axios from 'axios'
 import React from 'react'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "../components/Registration.css"
 
 
 
 
-const Registration = () => {
+const Registration = (props) => {
 
   const [first_name, setFirst_name] = useState('');
   const [last_name, setLast_name] = useState('');
@@ -15,6 +15,14 @@ const Registration = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
+
+  const { user } = props
+
+  useEffect(() => {
+    if(user) {
+      navigate('/')
+    }
+  })
 
   // Handling the name change
   const handleFirstName = (e) => {
