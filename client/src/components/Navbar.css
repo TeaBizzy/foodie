@@ -35,3 +35,8 @@ a {
   color: inherit;
   background-color: transparent;
 }
+
+.button-icon {
+  color: #EC1562;
+  cursor: pointer;
+}
