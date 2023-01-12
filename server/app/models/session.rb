@@ -3,6 +3,7 @@ class Session < ApplicationRecord
   validate :reservation_is_not_in_the_past
 
   has_many :users, through: :user_sessions
+  has_many :restaurants, dependent: :destroy
 
   def reservation_is_not_in_the_past
     if(!reservation.blank? && reservation.to_time < Time.now)
