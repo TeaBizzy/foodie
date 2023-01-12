@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "../components/Login.css"
 import axios from 'axios'
 import { useState } from 'react';
@@ -8,6 +8,15 @@ const Login = (props) => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const { user } = props
+
+  // Redirects the user if they are already logged in.
+  useEffect(() => {
+    if(user) {
+      navigate('/')
+    }
+  })
 
   const handleEmail = (e) => {
     setEmail(e.target.value);
@@ -30,28 +39,13 @@ const Login = (props) => {
       },
     }).then((response) => {
       if(response.data.id !== null) {
-        props.setLoggedUser(response.data)
-
         navigate("/")
       } else {
-
         navigate("/login")
       }
-
-     
-
     });
   }
 
-
-  function setLogout () {
-    axios({
-      method: 'post',
-      url: '/logout'
-    }).then(() => {
-        navigate("/login")
-    });
-  }
   return (
     <div className="container">
       <h1 className="login-h1">Foodie</h1>
@@ -64,7 +58,6 @@ const Login = (props) => {
         <button onClick={() => setLogin()}  className="login-button">Login</button>
         <span className="registration-prompt">Not a member?</span>
         <button onClick={() => window.location.replace('/register')} className="register-button">Register</button>
-        <button onClick={() =>setLogout()} className="register-button">logout</button>
       </div>
     </div>
   )

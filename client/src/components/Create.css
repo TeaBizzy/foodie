@@ -21,6 +21,7 @@
   border-radius: 50px;
   margin-right: 20px;
   border: none;
+  cursor: pointer;
 }
 
 .cancel-button {
@@ -39,4 +40,5 @@
   box-shadow: 2px 2px 2px 2px rgb(0 0 0 / 0.2);
   margin-left: 20px;
   border: none;
+  cursor: pointer;
 }

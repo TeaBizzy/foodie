@@ -9,14 +9,13 @@ import "../components/Create.css"
 const Create = () => {
   return (
     <div>
-      <Navbar />
       <div className="session-details">
         <DateDetails />
         <LocationDetails />
         <ParticipantDetails />
         <div className="create-session-buttons">
           <button className="start-button">Start</button>
-          <button className="cancel-button">Cancel</button>
+          <a href='/'><button className="cancel-button">Cancel</button></a>
         </div>
       </div>
     </div>

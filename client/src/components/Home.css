@@ -12,4 +12,6 @@
 	border: none;
 	padding: 0;
 	outline: inherit;
+  width: 100%;
+  cursor: pointer;
 }

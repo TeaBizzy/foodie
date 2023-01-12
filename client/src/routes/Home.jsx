@@ -25,10 +25,11 @@ const mockedData = [
 const Home = () => {
   return (
     <div className="home-container">
-      <Navbar />
-      <button className="add-button">
-        <FaPlusSquare size={60} style={{color: 'white', backgroundColor: '#EC1652', height: '100', width: '95%', borderRadius: '20px'}}/>
-      </button>
+      <a href='/create'>
+        <button className="add-button">
+          <FaPlusSquare size={60} style={{color: 'white', backgroundColor: '#EC1652', height: '100', width: '95%', borderRadius: '20px'}}/>
+        </button>
+      </a>
       {mockedData.map((data) => <SessionCard 
       name={data.name}
       address={data.address} 

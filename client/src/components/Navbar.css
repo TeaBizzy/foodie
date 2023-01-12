@@ -29,3 +29,14 @@
   background-color: #EC1562;
   margin-right: 10px;
 }
+
+a {
+  text-decoration: none;
+  color: inherit;
+  background-color: transparent;
+}
+
+.button-icon {
+  color: #EC1562;
+  cursor: pointer;
+}
