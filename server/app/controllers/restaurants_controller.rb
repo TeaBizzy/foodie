@@ -19,7 +19,7 @@ class RestaurantsController < ApplicationController
 
     # Change the swiping users session status.
     @user_id = session[:current_user_id]
-    UserSession.find_by(user_id: @user_id).update(status: 1)
+    @restaurant.session.user_sessions.find_by(user_id: @user_id).update(status: 1)
 
 
     # checks if the session is complete.
