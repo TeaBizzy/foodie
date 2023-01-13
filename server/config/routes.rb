@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   resources :restaurants, only: [:index]
   resources :users, only: [:create, :index]
   resources :examples, only: [:index]
+  resources :sessions, only: [:create]
 end
