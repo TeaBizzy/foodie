@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::API
+  include ActionController::MimeResponds
   def user_session_data
     user_id = params.require(:user_id)
     sessions = User.find(user_id).sessions

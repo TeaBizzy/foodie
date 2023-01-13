@@ -10,6 +10,7 @@ section {
   height: calc(800px + 3rem);
   padding-top: 3rem;
   padding-bottom: 3rem;
+  margin-bottom: -200px;
 }
 
 .buttons {
