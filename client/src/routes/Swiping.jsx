@@ -8,7 +8,7 @@ import TinderCard from "react-tinder-card";
 
 function Swipping() {
   const [session, setSession] = useState({restaurants: []});
-  const [currentCardIdx, setCurrentCardIdx] = useState(session.restaurants.length - 1);
+  const [currentCardIdx, setCurrentCardIdx] = useState();
   const navigate = useNavigate();
   const currentIndexRef = useRef(currentCardIdx);
   const { session_id } = useParams();
@@ -33,14 +33,26 @@ function Swipping() {
 
   const outOfFrame = (idx) => {
     currentIndexRef.current >= idx && childRefs[idx].current.restoreCard();
+    updateCurrentIndex(idx)
   };
 
+  // For button swipe
   const swipe = async (dir) => {
-    if (canSwipe && currentCardIdx < session.restaurants.length) {
+    console.log('wtf?');
+    axios('http://localhost:3000/swipe', {
+      withCredentials: true,
+      method: 'post',
+      data: {
+        restaurant_id: session.restaurants[currentCardIdx].id,
+        is_approved: dir === 'left' ? false : true
+      }
+    }).then(res => console.log(res.data))
+    if (canSwipe) {
       await childRefs[currentCardIdx].current.swipe(dir);
-    }
-  };
+    };
+  }
 
+  // Loads restaurant data for the session from api.
   useEffect(() => {
     axios.get(`http://localhost:3000/session_restaurants/${session_id}`, {withCredentials: true})
     .then(res => {
@@ -52,8 +64,9 @@ function Swipping() {
     })
   }, [])
 
+  // Returns user to the home page when swiping is complete.
   useEffect(() => {
-    if(currentCardIdx === currentCardIdx.length - 1) {
+    if(currentCardIdx < 0) {
       navigate('/')
     }
   }, [currentCardIdx])
