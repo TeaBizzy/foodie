@@ -18,7 +18,7 @@ export default function useSessionValidator() {
         setUser(null);
         navigate('/login')
       })
-  })
+  }, [location.pathname])
 
   return { user }
 };

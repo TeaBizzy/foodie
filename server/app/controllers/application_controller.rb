@@ -23,4 +23,18 @@ class ApplicationController < ActionController::API
 
     render json: @results
   end
+
+  # Responds with restaurants that belong to the given session id.
+  def session_restaurants
+    @session = Session.find_by(id: params[:session_id])
+    @user = @session.users.find_by(id: session[:current_user_id])
+    # Only allows the invited & logged in user to get a response.
+    if(!@user)
+      render status: 401
+      return
+    end
+    @restaurants = @session.restaurants.select(:id, :name, :address, :phone_number, :website , :rating, :img_url)
+    @response = {session_id: @session.id, restaurants: @restaurants}
+    render json: @response
+  end
 end

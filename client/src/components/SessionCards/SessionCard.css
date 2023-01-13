@@ -59,6 +59,7 @@
   color: #8E8E8E;
   font-weight: bold;
   font-size: 15px;
+  margin-top: 50px;
 }
 
 .session-right {
@@ -90,6 +91,7 @@
   border-radius: 10px;
   margin-right: 5px;
   border: none;
+  cursor: pointer;
 }
 
 .session-cancel-button {
@@ -107,12 +109,14 @@
   border-radius: 10px;
   margin-left: 5px;
   border: none;
+  cursor: pointer;
 }
 
 .session-participants {
   display: flex;
-  margin-left: 80px; 
+  justify-content: flex-end; 
   margin-top: 10px;
+  margin-right: 5px;
 }
 
 .session-user {
