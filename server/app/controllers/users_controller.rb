@@ -1,3 +1,5 @@
+require 'dotenv'
+Dotenv.load
 class UsersController < ApplicationController
  
 
@@ -5,16 +7,22 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     
-
     if @user.save
       render json: @user.id
-    else
-      render json: @user.errors.full_messages
-    end 
+      respond_to do |format|
+        # Tell the UserMailer to send a welcome email after save
+        UserMailer.with(user: @user).welcome_email.deliver_later
+  
+        format.html { redirect_to(@user, notice:'User is successfully created')}
+
+        format.json { render json: @user, status: :created, location: @user }
+      end
+    else 
+      format.html { render action: 'new' }
+          format.json { render json: @user.errors, status: :unprocessable_entity }
+    end
 
   end
-
-
 
   def index
     @users = User.all
