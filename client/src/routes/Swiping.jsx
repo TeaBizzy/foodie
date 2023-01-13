@@ -3,20 +3,22 @@ import axios from "axios"
 import "../styles/Swiping.css";
 import RestaurantCard from "../components/RestaurantCard";
 import { FaTimesCircle, FaCheckCircle } from "react-icons/fa";
+import { useNavigate, useParams } from 'react-router-dom';
 import TinderCard from "react-tinder-card";
 
 function Swipping() {
-  const [restaurants, setRestaurants] = useState([]);
-  const [currentCardIdx, setCurrentCardIdx] = useState(restaurants.length - 1);
-
+  const [session, setSession] = useState({restaurants: []});
+  const [currentCardIdx, setCurrentCardIdx] = useState(session.restaurants.length - 1);
+  const navigate = useNavigate();
   const currentIndexRef = useRef(currentCardIdx);
+  const { session_id } = useParams();
   
   const childRefs = useMemo(
     () =>
-      Array(restaurants.length)
+      Array(session.restaurants.length)
         .fill(0)
         .map((i) => React.createRef()),
-    [restaurants]
+    [session.restaurants]
   );
   const updateCurrentIndex = (val) => {
     setCurrentCardIdx(val);
@@ -34,36 +36,39 @@ function Swipping() {
   };
 
   const swipe = async (dir) => {
-    if (canSwipe && currentCardIdx < restaurants.length) {
+    if (canSwipe && currentCardIdx < session.restaurants.length) {
       await childRefs[currentCardIdx].current.swipe(dir);
     }
   };
 
   useEffect(() => {
-    axios.get('http://localhost:3000/restaurants')
+    axios.get(`http://localhost:3000/session_restaurants/${session_id}`, {withCredentials: true})
     .then(res => {
-      console.log(res.data)
-      setRestaurants(res.data)
-      setCurrentCardIdx(res.data.length - 1)
+      setSession(res.data)
+      setCurrentCardIdx(res.data.restaurants.length - 1)
     })
     .catch(err => {
       console.log(err);
     })
   }, [])
 
-  const restaurantCards = restaurants.map((restaurant, idx) => {
-    const { name, address, phone_number, website, rating, img_url } =
-      restaurant;
+  useEffect(() => {
+    if(currentCardIdx === currentCardIdx.length - 1) {
+      navigate('/')
+    }
+  }, [currentCardIdx])
+
+  const restaurantCards = session.restaurants.map((restaurant, idx) => {
 
     return (
       <RestaurantCard
-        key={idx}
-        name={name}
-        address={address}
-        phone_number={phone_number}
-        website={website}
-        rating={rating}
-        img_url={img_url}
+        key={restaurant.id}
+        name={restaurant.name}
+        address={restaurant.address}
+        phone_number={restaurant.phone_number}
+        website={restaurant.website}
+        rating={restaurant.rating}
+        img_url={restaurant.img_url}
       />
     );
   });
