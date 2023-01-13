@@ -14,11 +14,13 @@
 
 .session-left {
   display: flex;
+  flex-direction: row;
 }
 
 .restaurant-container {
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   margin-left: 10px;
 }
 
@@ -59,7 +61,6 @@
   color: #8E8E8E;
   font-weight: bold;
   font-size: 15px;
-  margin-top: 50px;
 }
 
 .session-right {
