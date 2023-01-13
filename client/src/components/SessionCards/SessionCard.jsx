@@ -16,7 +16,7 @@ export default function SessionCard(props) {
         <div className="session-left">
           {restaurant ? 
             <img className="session-image" src={restaurant.img_url} alt="restaurant" /> :
-            <FaQuestionCircle size={120} style={{color: '#EC1562'}} />
+            <FaQuestionCircle size={120} style={{color: '#EC1562', marginTop: '10px', marginLeft: '10px'}} />
           }
           <div className="restaurant-container">
             <div className="restaurant-details">

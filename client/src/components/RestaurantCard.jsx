@@ -37,7 +37,7 @@ function RestaurantCard(props) {
         <span className='restaurant-name'>{name.toUpperCase()}</span>
       </div>
       <div className={`img-container ${displayDetails && 'details-visible'}`}>
-        <img className={'restaurant-img'} src={img_url} />
+        <img draggable={false} className={'restaurant-img'} src={img_url} />
       </div>
       <div className={`${displayDetails ? 'details-container' : 'hidden'}`}>
         <div className="detail">{generateRating(rating)}</div>
