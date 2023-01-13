@@ -11,8 +11,24 @@ export default function SessionCard(props) {
   const { status, reservation, invitedUsers, restaurant, sessionId } = props;
   const navigate = useNavigate();
 
+  function onSessionClicked() {
+    switch(status) {
+      case 0: 
+        navigate(`/swiping/${sessionId}`)
+        break;
+      case 1:
+        alert('You have already swipped these!')
+        break;
+      case 2:
+        alert('This session is complete!')
+        break;
+      default:
+        return;
+    }
+  }
+
   return (
-    <div className="session" onClick={() => navigate(`/swiping/${sessionId}`)}>
+    <div className="session" onClick={() => onSessionClicked()}>
         <div className="session-left">
           {restaurant ? 
             <img className="session-image" src={restaurant.img_url} alt="restaurant" /> :
