@@ -55,7 +55,6 @@ export default function SessionCard(props) {
             )}
           </div>
           <div className="session-buttons">
-            <button className="session-edit-button">Edit</button>
             <button className="session-cancel-button">Cancel</button>
           </div>
         </div>
