@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'examples/index'
-
+  
   get 'signed_on', to: 'login#is_logged_in'
   get 'user_session_data/:user_id', to: 'application#user_session_data'
   get 'session_restaurants/:session_id', to: 'application#session_restaurants'
@@ -16,4 +16,6 @@ Rails.application.routes.draw do
   resources :users, only: [:create, :index]
   resources :examples, only: [:index]
   resources :sessions, only: [:create, :destroy]
+  # post 'destroy' => 'sessions#destroy'
+ # delete 'delete', to: 'sessions#destroy', as: :delete
 end

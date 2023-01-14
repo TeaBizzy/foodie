@@ -5,11 +5,29 @@ import Pending from "../Status/Pending"
 import "./SessionCard.css"
 import formatReservation from '../../helpers/ReservationFormatter';
 import { FaQuestionCircle } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios'
 
 export default function SessionCard(props) {
-  const { status, reservation, invitedUsers, restaurant, sessionId } = props;
+  const { status, reservation, invitedUsers, restaurant, sessionId, sessions, setSessions } = props;
   const navigate = useNavigate();
+ 
+  function onDelete(event) {
+   
+    event.stopPropagation();
+
+    axios({
+      method: 'delete',
+      url: `/sessions/${sessionId}`,
+      withCredentials: true,
+      baseURL: "http://localhost:3000"
+    }).then((response) => {
+      const newSessions = sessions.filter((session)=> session.session_id !== sessionId )
+      console.log(newSessions)
+      setSessions(newSessions)
+    }).catch((error) => {console.log(error)});
+  }
+  
 
   function onSessionClicked() {
     switch(status) {
@@ -56,6 +74,7 @@ export default function SessionCard(props) {
           </div>
           <div className="session-buttons">
             <button className="session-cancel-button">Cancel</button>
+            <button onClick={(event)=> onDelete(event)} className="session-cancel-button">Delete</button>
           </div>
         </div>
       </div>

@@ -16,6 +16,8 @@ class ApplicationController < ActionController::API
       @reservation = session.reservation
       @restaurant = nil
       if(@session_status == 2)
+
+
         @restaurant = session.restaurants.first
         @restaurant = {name: @restaurant[:name], address: @restaurant[:address], img_url: @restaurant[:img_url]}
       end

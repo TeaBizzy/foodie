@@ -15,6 +15,10 @@ class RestaurantsController < ApplicationController
 
     if(is_session_finished)
       set_session_to_finished
+      @invited_users = @session.users
+      @invited_users.each do |user|
+      UserMailer.with(user: user).finished_email.deliver_later
+      end
     else
       set_current_user_session_to_pending # Must run first
     end
