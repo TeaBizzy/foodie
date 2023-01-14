@@ -8,7 +8,7 @@ const Login = (props) => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
+  const [error, setError] = useState('');
   const { user } = props
 
   // Redirects the user if they are already logged in.
@@ -36,21 +36,21 @@ const Login = (props) => {
           email: email,
           password: password
         }
+      
       },
-    }).then((response) => {
-      if(response.data.id !== null) {
-        navigate("/")
-      } else {
-        navigate("/login")
-      }
-    });
+      
+    }).then((response) => navigate('/')).catch(err => setError(err.response.data.error));
+
   }
+
+
 
   return (
     <div className="container">
       <h1 className="login-h1">Foodie</h1>
       <h2>Hungry for options? Let us be your culinary compass!</h2>
       <form>
+      { error && <h3> {error}</h3>}
         <input onChange={handleEmail} value={email} type="text" placeholder="Email"></input>
         <input onChange={handlePassword} value={password} type="password" placeholder="Password"></input>
       </form>

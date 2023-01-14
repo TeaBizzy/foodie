@@ -5,10 +5,10 @@ class LoginController < ApplicationController
       if user = User.authenticate_with_credentials(params[:user][:email].downcase, params[:user][:password])
         # success logic, log them in
         session[:current_user_id] = user.id
-        render json: user
+        render status: 204
       else
         # failure, render login form
-        render json: {}
+        render json: {error: "Email or Password is incorrect! 🐧 "},status: 500
       end
 
   end

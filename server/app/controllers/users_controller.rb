@@ -18,7 +18,7 @@ class UsersController < ApplicationController
 
     # Validate inputs.
     if(!@new_user.save)
-      return render json: {error: @existing_user.errors.full_messages[0]}, status: 500
+      return render json: {error: @new_user.errors.full_messages[0]}, status: 500
     end
 
     # Tell the UserMailer to send a welcome email after save.
