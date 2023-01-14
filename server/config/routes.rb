@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'session_restaurants/:session_id', to: 'application#session_restaurants'
   post 'logout', to: 'login#logout'
   post 'swipe', to: 'restaurants#create_swipe'
+  get 'sessions/:id/resolve', to: 'sessions#resolve_session'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   
   # Defines the root path route ("/")
