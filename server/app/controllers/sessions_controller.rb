@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  
+
   def create
     # Make sure user is logged in first.
     if(!session[:current_user_id])
@@ -97,6 +97,11 @@ class SessionsController < ApplicationController
 
   # Determines the winner of a session.
   def resolve_session
+    # Make sure user is logged in first.
+    if(!session[:current_user_id])
+      return render status: 401
+    end
+
     @session = Session.find_by(id: params[:id])
     @num_users = @session.users.length
 
