@@ -1,6 +1,6 @@
 class Restaurant < ApplicationRecord
   has_many :operating_times, dependent: :destroy
-  has_many :pictures, dependent: :destroy
+
   has_many :swipes, dependent: :destroy
 
   belongs_to :session
