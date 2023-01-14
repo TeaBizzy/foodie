@@ -32,13 +32,11 @@ function Swipping() {
   };
 
   const outOfFrame = (idx) => {
-    currentIndexRef.current >= idx && childRefs[idx].current.restoreCard();
     updateCurrentIndex(idx)
   };
 
   // For button swipe
   const swipe = async (dir) => {
-    console.log('wtf?');
     axios('http://localhost:3000/swipe', {
       withCredentials: true,
       method: 'post',

@@ -31,6 +31,8 @@ export default function Home(props) {
           reservation={session.reservation}
           status={session.status}
           restaurant={session.restaurant}
+          sessions = {sessions}
+          setSessions= {setSessions}
           invitedUsers={session.invited_users}
         />)}
       </div>

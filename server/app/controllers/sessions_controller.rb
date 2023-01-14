@@ -76,11 +76,12 @@ class SessionsController < ApplicationController
 
 
   def destroy
-    # Make sure user is logged in first.
+
+
     if(!session[:current_user_id])
       return render status: 401
     end
-    
+    puts " we hit the function "
     user_id = session[:current_user_id]
     session_id = params[:id]
     session = Session.find_by(id: session_id)

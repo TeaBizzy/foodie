@@ -12,6 +12,7 @@ export default function Create() {
   const [searchRadius, setSearchRadius] = useState(500);
   const [invites, setInvites] = useState(['']);
   const navigate = useNavigate();
+  const [error, setError] = useState('');
 
   function sendEmail(data) {
     axios({
@@ -27,12 +28,14 @@ export default function Create() {
         }
       }
     }).then(res => navigate('/'))
-      .catch(err => console.log(err.response.data))
+      .catch(err => setError(err.response.data.error))
   }
 
   return (
     <div>
-      <div className="session-details">
+    
+      <div className="session-details">    
+      { error && <h3> {error}</h3>}
         <DateDetails reservationDate={reservationDate} setReservationDate={setReservationDate}/>
         <LocationDetails 
           searchLocation={searchLocation} 
