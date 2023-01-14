@@ -72,27 +72,9 @@
 
 .session-buttons {
   display: flex;
+  justify-content: flex-end;
   margin-top: 10px;
   margin-right: 10px;
-}
-
-.session-edit-button {
-  text-transform: uppercase;
-  font-family: 'Inter', sans-serif;
-  font-weight: bold;
-  font-size: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: white;
-  color: #EF1652;
-  box-shadow: 1px 1px 1px 1px rgb(0 0 0 / 0.2);
-  height: 30px;
-  width: 100px;
-  border-radius: 10px;
-  margin-right: 5px;
-  border: none;
-  cursor: pointer;
 }
 
 .session-cancel-button {
