@@ -76,23 +76,15 @@ class SessionsController < ApplicationController
 
 
   def destroy
-
-
     if(!session[:current_user_id])
       return render status: 401
     end
-    puts " we hit the function "
+
     user_id = session[:current_user_id]
     session_id = params[:id]
     session = Session.find_by(id: session_id)
+    session.destroy()
 
-    if(session.users.length < 2)
-      session.destroy()
-    else
-      user_session = session.user_sessions.find_by(user_id: user_id)
-      user_session.destroy()
-      # TODO: Perhaps just have the whole session deleted?
-    end
   end
 
 
