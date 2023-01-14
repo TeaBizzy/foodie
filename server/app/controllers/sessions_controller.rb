@@ -142,7 +142,13 @@ class SessionsController < ApplicationController
       puts "All restaurants were denied, selecting random restaurant... Winner is: #{@winner}"
     end
 
-    @session.update(restaurant_id: @winner[:restaurant_id])
+    # Remove all other restaurants.
+    @session.restaurants.each do |restaurant|
+      if(restaurant.id != @winner[:restaurant_id])
+        restaurant.destroy
+      end
+    end
+
     render status: 204
   end
 end
