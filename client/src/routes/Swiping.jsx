@@ -65,7 +65,9 @@ function Swipping() {
   // Returns user to the home page when swiping is complete.
   useEffect(() => {
     if(currentCardIdx < 0) {
-      navigate('/')
+      axios(`http://localhost:3000/sessions/${session_id}/resolve`, {withCredentials: true})
+        .then(navigate('/'))
+        .catch(err => console.log(err))
     }
   }, [currentCardIdx])
 

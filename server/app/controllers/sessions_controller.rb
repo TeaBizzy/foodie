@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+
   def create
     # Make sure user is logged in first.
     if(!session[:current_user_id])
@@ -52,6 +53,7 @@ class SessionsController < ApplicationController
     render json: session, status: 200
   end
 
+
   # Checks for bad parameters, and sends back an error response.
   def is_valid_parameters 
     if @params[:reservation].blank?
@@ -72,6 +74,7 @@ class SessionsController < ApplicationController
     return true
   end
 
+
   def destroy
 
 
@@ -88,7 +91,64 @@ class SessionsController < ApplicationController
     else
       user_session = session.user_sessions.find_by(user_id: user_id)
       user_session.destroy()
-      # TODO: Perhaps just have the whol session deleted?
+      # TODO: Perhaps just have the whole session deleted?
     end
+  end
+
+
+  # Determines the winner of a session.
+  def resolve_session
+    # Make sure user is logged in first.
+    if(!session[:current_user_id])
+      return render status: 401
+    end
+
+    @session = Session.find_by(id: params[:id])
+    @num_users = @session.users.length
+
+    # Get all swipe results.
+    results = @session.restaurants.map do |restaurant|
+      votes = 0
+      restaurant.swipes.each do |swipe|
+        if (swipe.is_approved)
+          votes += 1
+        end
+      end
+      {restaurant_id: restaurant.id, votes: votes}
+    end
+
+    # Filters only results that have 1+ votes.
+    approved_restaurants = results.select do |result|
+      if(result[:votes] > 0)
+        result
+      end
+    end
+
+    # Filters only restaurants that have votes == number of invited users.
+    winners = approved_restaurants.select do |restaurant|
+      if restaurant[:votes] == @num_users
+        restaurant
+      end
+    end
+    
+    if !winners.empty? # 1 or more restaurants all received yes.
+      @winner = winners.sample
+      puts "Winner is: #{@winner}"
+    elsif !approved_restaurants.empty? # 1 or more restaurant received at least 1 yes
+      @winner = approved_restaurants.sample
+      puts "No restaurant was a clear winner, picking random accept restaurnt... Winner is: #{@winner}"
+    else
+      @winner = results.sample
+      puts "All restaurants were denied, selecting random restaurant... Winner is: #{@winner}"
+    end
+
+    # Remove all other restaurants.
+    @session.restaurants.each do |restaurant|
+      if(restaurant.id != @winner[:restaurant_id])
+        restaurant.destroy
+      end
+    end
+
+    render status: 204
   end
 end
