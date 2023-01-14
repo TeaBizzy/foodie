@@ -167,8 +167,11 @@ restaurant6 = Restaurant.create(
   lng: -79.8670459,
   rating: 4.6, 
   img_url: 'https://lh3.googleusercontent.com/places/AJDFj41pmlRmTKsWQSpHef7GRdjEAKZYwtV2Ta5h-W0-7ywvTZSxBvLYaThRNxF8mYp2DUG08qeK8a8SpLP7xBDl01HRjuWU0vHzcRw=s1600-w600', 
-  website: 'http://claudios.ca/'
+  website: 'http://claudios.ca/',
+  session_id: session3.id
 )
+
+Swipe.create(restaurant_id: restaurant6.id, is_approved: true)
 
 operating_time1 = OperatingTime.create(restaurant_id: restaurant6.id, day: 0, open: "17:00".to_time, close: "21:00".to_time)
 operating_time2 = OperatingTime.create(restaurant_id: restaurant6.id, day: 1, open: "12:00".to_time, close: "14:30".to_time)
@@ -187,8 +190,11 @@ restaurant7 = Restaurant.create(
   lng: -79.8663995,
   rating: 4.5, 
   img_url: 'https://lh3.googleusercontent.com/places/AJDFj42UfuAKACOzm8pMCZ0SyJBcDdECm6cBJ3ka7Aykp8poSnXXtsbQ3yaaoNnRmfO-2bXst-Vb4U2Bj-GPVZX1um4vFDxFIRhSDbI=s1600-w600', 
-  website: 'https://www.bornandraisedrestaurant.com/'
+  website: 'https://www.bornandraisedrestaurant.com/',
+  session_id: session3.id
 )
+
+Swipe.create(restaurant_id: restaurant7.id, is_approved: true)
 
 operating_time1 = OperatingTime.create(restaurant_id: restaurant7.id, day: 0, open: "17:00".to_time, close: "02:00".to_time)
 operating_time2 = OperatingTime.create(restaurant_id: restaurant7.id, day: 5, open: "17:00".to_time, close: "02:00".to_time)
