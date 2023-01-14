@@ -64,12 +64,14 @@ restaurant1 = Restaurant.create(
   session_id: session1.id
 )
 
+
 operating_time1 = OperatingTime.create(restaurant_id: restaurant1.id, day: 1, open: "16:00".to_time, close: "21:00".to_time)
 operating_time2 = OperatingTime.create(restaurant_id: restaurant1.id, day: 2, open: "16:00".to_time, close: "21:00".to_time)
 operating_time3 = OperatingTime.create(restaurant_id: restaurant1.id, day: 3, open: "16:00".to_time, close: "21:00".to_time)
 operating_time4 = OperatingTime.create(restaurant_id: restaurant1.id, day: 4, open: "16:00".to_time, close: "21:00".to_time)
 operating_time5 = OperatingTime.create(restaurant_id: restaurant1.id, day: 5, open: "16:00".to_time, close: "21:00".to_time)
 operating_time6 = OperatingTime.create(restaurant_id: restaurant1.id, day: 6, open: "16:00".to_time, close: "21:00".to_time)
+
 
 restaurant2 = Restaurant.create(
   name: 'All star Roadhouse Bar & Grill', 
@@ -82,6 +84,7 @@ restaurant2 = Restaurant.create(
   website: 'https://barandgrillalliston.ca/',
   session_id: session1.id
 )
+
 
 operating_time1 = OperatingTime.create(restaurant_id: restaurant2.id, day: 1, open: "11:00".to_time, close: "00:00".to_time)
 operating_time2 = OperatingTime.create(restaurant_id: restaurant2.id, day: 2, open: "11:00".to_time, close: "00:00".to_time)
@@ -103,8 +106,9 @@ restaurant3 = Restaurant.create(
   session_id: session2.id
 )
 
-swipe1 = Swipe.create(restaurant_id: restaurant3.id, is_approved: true)
-swipe2 = Swipe.create(restaurant_id: restaurant3.id, is_approved: true)
+
+Swipe.create(restaurant_id: restaurant3.id, is_approved: true)
+Swipe.create(restaurant_id: restaurant3.id, is_approved: true)
 
 operating_time1 = OperatingTime.create(restaurant_id: restaurant3.id, day: 1, open: "11:00".to_time, close: "20:00".to_time)
 operating_time2 = OperatingTime.create(restaurant_id: restaurant3.id, day: 2, open: "11:00".to_time, close: "20:00".to_time)
@@ -125,7 +129,7 @@ restaurant4 = Restaurant.create(
   session_id: session3.id
 )
 
-swipe3 = Swipe.create(restaurant_id: restaurant4.id, is_approved: false)
+Swipe.create(restaurant_id: restaurant4.id, is_approved: false)
 
 operating_time1 = OperatingTime.create(restaurant_id: restaurant4.id, day: 2, open: "17:00".to_time, close: "22:30".to_time)
 operating_time2 = OperatingTime.create(restaurant_id: restaurant4.id, day: 3, open: "17:00".to_time, close: "22:30".to_time)
@@ -145,7 +149,7 @@ restaurant5 = Restaurant.create(
   session_id: session3.id
 )
 
-swipe3 = Swipe.create(restaurant_id: restaurant5.id, is_approved: true)
+Swipe.create(restaurant_id: restaurant5.id, is_approved: true)
 
 operating_time2 = OperatingTime.create(restaurant_id: restaurant5.id, day: 1, open: "11:00".to_time, close: "00:00".to_time)
 operating_time3 = OperatingTime.create(restaurant_id: restaurant5.id, day: 2, open: "11:00".to_time, close: "00:00".to_time)
