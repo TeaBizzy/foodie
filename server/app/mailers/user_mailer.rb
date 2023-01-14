@@ -14,4 +14,10 @@ class UserMailer < ApplicationMailer
     @url  = 'http://localhost:8080/login'
     mail(to: @user[:email], subject: 'Welcome to My Awesome Site')
   end
+
+  def finished_email
+    @user = params[:user]
+    @url  = 'http://localhost:8080/login'
+    mail(to: @user[:email], subject: 'Everyone Finished Their input')
+  end
 end
