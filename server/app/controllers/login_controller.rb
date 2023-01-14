@@ -2,7 +2,7 @@ class LoginController < ApplicationController
 
   def create
     # If the user exists AND the password entered is correct.
-      if user = User.authenticate_with_credentials(params[:user][:email], params[:user][:password])
+      if user = User.authenticate_with_credentials(params[:user][:email].downcase, params[:user][:password])
         # success logic, log them in
         session[:current_user_id] = user.id
         render json: user

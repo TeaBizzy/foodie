@@ -8,20 +8,18 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     
     if @user.save
-      render json: @user.id
-      respond_to do |format|
+        
         # Tell the UserMailer to send a welcome email after save
-        UserMailer.with(user: @user).welcome_email.deliver_later
-  
-        format.html { redirect_to(@user, notice:'User is successfully created')}
-
-        format.json { render json: @user, status: :created, location: @user }
-      end
+         UserMailer.with(user: @user).welcome_email.deliver_later
+         session[:current_user_id] = @user.id
+         render json: {id: @user.id} 
+          
     else 
-      format.html { render action: 'new' }
-          format.json { render json: @user.errors, status: :unprocessable_entity }
-    end
 
+      render json: @user.errors.full_messages
+
+    end
+    
   end
 
   def index
