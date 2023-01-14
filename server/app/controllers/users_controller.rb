@@ -1,25 +1,33 @@
-require 'dotenv'
-Dotenv.load
 class UsersController < ApplicationController
  
-
   # POST /users
   def create
-    @user = User.new(user_params)
+    @inputs = user_params
     
-    if @user.save
-        
-        # Tell the UserMailer to send a welcome email after save
-         UserMailer.with(user: @user).welcome_email.deliver_later
-         session[:current_user_id] = @user.id
-         render json: {id: @user.id} 
-          
-    else 
-
-      render json: @user.errors.full_messages
-
+    # Registers an invted user.
+    if is_empty_user
+      @existing_user.password = @inputs[:password]
+      @existing_user.first_name = @inputs[:first_name]
+      @existing_user.last_name = @inputs[:last_name]
+      @existing_user.img_url = @inputs[:img_url]
+      @new_user = @existing_user
+    else
+      # Create new user.
+      @new_user = User.new(@inputs)
     end
-    
+
+    # Validate inputs.
+    if(!@new_user.save)
+      return render json: {error: @existing_user.errors.full_messages[0]}, status: 500
+    end
+
+    # Tell the UserMailer to send a welcome email after save.
+    UserMailer.with(user: @new_user).welcome_email.deliver_later
+
+    # Create session cookie.
+    session[:current_user_id] = @new_user.id
+
+    render status: 204
   end
 
   def index
@@ -40,7 +48,17 @@ class UsersController < ApplicationController
       return inputs
     end
 
-    # Returns a random user image url.
+    # Checks if email exists on the database, but the user hasn't been registered.
+    def is_empty_user
+      @existing_user = User.find_by(email: @inputs[:email])
+      if(@existing_user && !@existing_user[:password_digest] && !@existing_user[:first_name] && !@existing_user[:last_name])
+        true
+      else
+        false
+      end
+    end
+
+    # Generates a random profile img.
     def get_random_img
       imgs = [
         'https://i.imgur.com/avMgDEG.png',
