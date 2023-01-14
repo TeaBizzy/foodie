@@ -14,6 +14,11 @@ export default function ParticipantDetails(props) {
     for(let i = 1; i < invites.length; i++) {
       components.push(
         <div className="users">
+          <input className="default" placeholder="Email" value={invites[i]} onChange={e => setInvites(prev => {
+          const a = [...prev]
+          a[i] = e.target.value
+          return a
+          })}/>
           <FaMinusCircle 
             onClick={() => {
               setInvites(prev => {
@@ -22,12 +27,7 @@ export default function ParticipantDetails(props) {
                 return a
               })
             }} 
-            size={30} style={{color: '#EF1562', marginBottom: 5}} />
-          <input className="default" placeholder="Email" value={invites[i]} onChange={e => setInvites(prev => {
-          const a = [...prev]
-          a[i] = e.target.value
-          return a
-        })}/>
+            size={30} style={{color: '#EF1562', marginBottom: 5, marginLeft: 5}} />
         </div>
       )
     }
