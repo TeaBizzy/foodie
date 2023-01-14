@@ -5,8 +5,6 @@ class SessionsController < ApplicationController
   def create
     
     @user = user_params
-    puts @user
-    puts "we are there"
     UserMailer.with(user: @user).invite_email.deliver_later
     render json: @user 
     end

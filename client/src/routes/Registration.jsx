@@ -1,13 +1,13 @@
 import axios from 'axios'
 import React from 'react'
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "../components/Registration.css"
 
 
 
 
-const Registration = (props) => {
+const Registration = () => {
 
   const [first_name, setFirst_name] = useState('');
   const [last_name, setLast_name] = useState('');
@@ -16,26 +16,17 @@ const Registration = (props) => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const { user } = props
-  
-  // Redirects the user if they are already logged in.
-  useEffect(() => {
-    if(user) {
-      navigate('/')
-    }
-  })
-
   // Handling the name change
   const handleFirstName = (e) => {
-    setFirst_name(e.target.value);
+    setFirst_name(e.target.value.toLowerCase());
   };
   const handleLastName = (e) => {
-    setLast_name(e.target.value);
+    setLast_name(e.target.value.toLowerCase());
 
   };
   // Handling the email change
   const handleEmail = (e) => {
-    setEmail(e.target.value);
+    setEmail(e.target.value.toLowerCase());
   };
 
   // Handling the password change
@@ -51,6 +42,7 @@ const Registration = (props) => {
 
 
   function registerUser() {
+    
     axios({
       method: 'post',
       url: '/users',
@@ -64,13 +56,15 @@ const Registration = (props) => {
       },
       baseURL: "http://localhost:3000"
     }).then((response) => {
+      console.log(response);
       if (response.data.id) {
-        console.log(response.data);
-        navigate('/login')
+        
+        navigate('/')
       } else {
+        
         setError(response.data[0])
       }
-    });
+    }).catch((error) => {console.log(error)});
   }
   return (
 
