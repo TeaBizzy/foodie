@@ -35,6 +35,14 @@ class SessionsController < ApplicationController
       return render json: {error: session.errors.full_messages[0]}, status: 500
     end
     
+    # Create restaurants.
+    restaurants = Restaurant.all.sample(6)
+
+    restaurants.each do |restaurant|
+      name, address, phone_number, rating, img_url, website, lat, lng = restaurant.values_at(:name, :address, :phone_number, :rating, :img_url, :website, :lat, :lng)
+      session.restaurants.create(name: name, address: address, phone_number: phone_number, rating: rating, img_url: img_url, website: website, lat: lat, lng: lng)
+    end
+
     # Sends invite email to each user.
     users.each do |user|
       new_user_session = UserSession.create(session_id: session.id, user_id: user.id, status: 0)
