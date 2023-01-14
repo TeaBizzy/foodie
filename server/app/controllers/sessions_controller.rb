@@ -63,4 +63,18 @@ class SessionsController < ApplicationController
 
     return true
   end
+
+  def destroy
+    user_id = session[:current_user_id]
+    session_id = params[:id]
+    session = Session.find_by(id: session_id)
+
+    if(session.users.length < 2)
+      session.destroy()
+    else
+      user_session = session.user_sessions.find_by(user_id: user_id)
+      user_session.destroy()
+      # TODO: Perhaps just have the whol session deleted?
+    end
+  end
 end
