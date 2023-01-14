@@ -4,9 +4,6 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "../components/Registration.css"
 
-
-
-
 const Registration = () => {
 
   const [first_name, setFirst_name] = useState('');
@@ -42,8 +39,8 @@ const Registration = () => {
 
 
   function registerUser() {
-    
     axios({
+      withCredentials: true,
       method: 'post',
       url: '/users',
       data: {
@@ -55,16 +52,8 @@ const Registration = () => {
         }
       },
       baseURL: "http://localhost:3000"
-    }).then((response) => {
-      console.log(response);
-      if (response.data.id) {
-        
-        navigate('/')
-      } else {
-        
-        setError(response.data[0])
-      }
-    }).catch((error) => {console.log(error)});
+    }).then((res) => navigate('/'))
+      .catch(err => setError(err.response.data.error));
   }
   return (
 
@@ -81,7 +70,7 @@ const Registration = () => {
       <div className="registration-buttons">
         <button onClick={handleSubmit} type="submit" className="register-button">Register</button>
         <span className="member-prompt">Already a member?</span>
-        <button onClick={() => window.location.replace('/login')} className="login-button">Login</button>
+        <button onClick={() => navigate('/login')} className="login-button">Login</button>
       </div>
     </div>
 
