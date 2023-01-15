@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import axios from "axios"
 import "../styles/Swiping.css";
 import RestaurantCard from "../components/RestaurantCard";
@@ -6,13 +6,15 @@ import { FaTimesCircle, FaCheckCircle } from "react-icons/fa";
 import { useNavigate, useParams } from 'react-router-dom';
 import TinderCard from "react-tinder-card";
 
+const isSwipedMap = new Map();
+
 function Swipping() {
   const [session, setSession] = useState({restaurants: []});
   const [currentCardIdx, setCurrentCardIdx] = useState();
   const navigate = useNavigate();
-  const currentIndexRef = useRef(currentCardIdx);
   const { session_id } = useParams();
   
+
   const childRefs = useMemo(
     () =>
       Array(session.restaurants.length)
@@ -20,33 +22,39 @@ function Swipping() {
         .map((i) => React.createRef()),
     [session.restaurants]
   );
-  const updateCurrentIndex = (val) => {
-    currentIndexRef.current = val;
-  };
 
   const canSwipe = currentCardIdx >= 0;
 
-  const swiped = (index) => {
-    updateCurrentIndex(index - 1);
-  };
-
-  const outOfFrame = (idx) => {
-    updateCurrentIndex(idx)
+  const swiped = (dir, index) => {
+    if (!isSwipedMap.get(index)) {
+      isSwipedMap.set(index, true);
+      axios('http://localhost:3000/swipe', {
+        withCredentials: true,
+        method: 'post',
+        data: {
+          restaurant_id: session.restaurants[index].id,
+          is_approved: dir === 'left' ? false : true
+        }
+      }).then(() => {setCurrentCardIdx(prev => prev - 1)})
+    }
   };
 
   // For button swipe
   const swipe = async (dir) => {
-    axios('http://localhost:3000/swipe', {
-      withCredentials: true,
-      method: 'post',
-      data: {
-        restaurant_id: session.restaurants[currentCardIdx].id,
-        is_approved: dir === 'left' ? false : true
-      }
-    }).then(() => {setCurrentCardIdx(prev => prev - 1)})
-    if (canSwipe) {
-      await childRefs[currentCardIdx].current.swipe(dir);
-    };
+    if (!isSwipedMap.get(currentCardIdx)) {
+      isSwipedMap.set(currentCardIdx, true);
+      axios('http://localhost:3000/swipe', {
+        withCredentials: true,
+        method: 'post',
+        data: {
+          restaurant_id: session.restaurants[currentCardIdx].id,
+          is_approved: dir === 'left' ? false : true
+        }
+      }).then(() => {setCurrentCardIdx(prev => prev - 1)})
+      if (canSwipe) {
+        await childRefs[currentCardIdx].current.swipe(dir);
+      };
+    }
   }
 
   // Loads restaurant data for the session from api.
@@ -55,6 +63,9 @@ function Swipping() {
     .then(res => {
       setSession(res.data)
       setCurrentCardIdx(res.data.restaurants.length - 1)
+      res.data.restaurants.forEach((element, index) => {
+        isSwipedMap.set(index, false);
+      })
     })
     .catch((err) => {console.log(err)})
   }, [])
@@ -66,6 +77,7 @@ function Swipping() {
         .then(() => {navigate('/')})
         .catch((err) => {console.log(err)})
     }
+    console.log(currentCardIdx)
   }, [currentCardIdx])
 
   const restaurantCards = session.restaurants.map((restaurant, idx) => {
@@ -93,8 +105,9 @@ function Swipping() {
                 ref={childRefs[index]}
                 key={index}
                 className="stacked"
-                onSwipe={() => swiped(index)}
-                onCardLeftScreen={() => outOfFrame(index)}
+                onSwipe={(dir) => swiped(dir, index)}
+                swipeThreshold={1}
+                swipeRequirementType="position"
               >
                 {element}
               </TinderCard>
