@@ -10,8 +10,7 @@ function Navbar(props) {
   const { userImg } = props;
 
   function logout() {
-    axios('http://localhost:3000/logout', {method: 'post', withCredentials: true})
-      .then(navigate('/login'))
+    axios('http://localhost:3000/logout', {method: 'post', withCredentials: true}).then(()=> navigate('/login'))
   }
 
   return (
