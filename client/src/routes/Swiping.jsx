@@ -21,7 +21,6 @@ function Swipping() {
     [session.restaurants]
   );
   const updateCurrentIndex = (val) => {
-    setCurrentCardIdx(val);
     currentIndexRef.current = val;
   };
 
@@ -44,7 +43,7 @@ function Swipping() {
         restaurant_id: session.restaurants[currentCardIdx].id,
         is_approved: dir === 'left' ? false : true
       }
-    }).then(res => console.log(res.data))
+    }).then(() => {setCurrentCardIdx(prev => prev - 1)})
     if (canSwipe) {
       await childRefs[currentCardIdx].current.swipe(dir);
     };
@@ -57,17 +56,15 @@ function Swipping() {
       setSession(res.data)
       setCurrentCardIdx(res.data.restaurants.length - 1)
     })
-    .catch(err => {
-      console.log(err);
-    })
+    .catch((err) => {console.log(err)})
   }, [])
 
   // Returns user to the home page when swiping is complete.
   useEffect(() => {
     if(currentCardIdx < 0) {
       axios(`http://localhost:3000/sessions/${session_id}/resolve`, {withCredentials: true})
-        .then(navigate('/'))
-        .catch(err => console.log(err))
+        .then(() => {navigate('/')})
+        .catch((err) => {console.log(err)})
     }
   }, [currentCardIdx])
 

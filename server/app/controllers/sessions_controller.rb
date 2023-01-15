@@ -95,11 +95,39 @@ class SessionsController < ApplicationController
       return render status: 401
     end
 
+    # Update session status
+    user_id = session[:current_user_id]
     @session = Session.find_by(id: params[:id])
     @num_users = @session.users.length
+    restaurants = @session.restaurants
+
+    swipes = 0
+    restaurants.each do |restaurant|
+      swipes += restaurant.swipes.length  
+    end
+
+    puts "Number of swipes: #{swipes}"
+    # Update session status
+    if swipes < @num_users * restaurants.length
+      # Not all users have swiped. Set current users session status to 1. (pending)
+      user_session = UserSession.find_by(user_id: user_id)
+      user_session.update(status: 1)
+      return render status: 204
+    else
+      # All users have swipped, change everyones status to 2. (finished)
+      @session.user_sessions.each do |user_session|
+        user_session.update(status: 2)
+      end
+
+      # Send finished emails
+      @session.users.each do |user|
+        UserMailer.with(user: user).finished_email.deliver_later
+      end
+    end
+
 
     # Get all swipe results.
-    results = @session.restaurants.map do |restaurant|
+    results = restaurants.map do |restaurant|
       votes = 0
       restaurant.swipes.each do |swipe|
         if (swipe.is_approved)
@@ -122,20 +150,17 @@ class SessionsController < ApplicationController
         restaurant
       end
     end
-    
+
     if !winners.empty? # 1 or more restaurants all received yes.
       @winner = winners.sample
-      puts "Winner is: #{@winner}"
     elsif !approved_restaurants.empty? # 1 or more restaurant received at least 1 yes
       @winner = approved_restaurants.sample
-      puts "No restaurant was a clear winner, picking random accept restaurnt... Winner is: #{@winner}"
-    else
+    else # Everyone denied all places, pick a random one.
       @winner = results.sample
-      puts "All restaurants were denied, selecting random restaurant... Winner is: #{@winner}"
     end
 
     # Remove all other restaurants.
-    @session.restaurants.each do |restaurant|
+    restaurants.each do |restaurant|
       if(restaurant.id != @winner[:restaurant_id])
         restaurant.destroy
       end
