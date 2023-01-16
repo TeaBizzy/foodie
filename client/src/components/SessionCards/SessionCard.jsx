@@ -73,7 +73,6 @@ export default function SessionCard(props) {
             )}
           </div>
           <div className="session-buttons">
-            <button className="session-cancel-button">Cancel</button>
             <button onClick={(event)=> onDelete(event)} className="session-cancel-button">Delete</button>
           </div>
         </div>
