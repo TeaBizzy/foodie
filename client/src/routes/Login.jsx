@@ -48,7 +48,7 @@ const Login = (props) => {
   return (
     <div className="container">
       <h1 className="login-h1">Foodie</h1>
-      <h2>Hungry for options? Let us be your culinary compass!</h2>
+      <h2 className="slogan">Hungry for options? Let us be your culinary compass!</h2>
       <form>
       { error && <h3> {error}</h3>}
         <input onChange={handleEmail} value={email} type="text" placeholder="Email"></input>
