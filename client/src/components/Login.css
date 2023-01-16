@@ -15,7 +15,7 @@
   font-weight: lighter;
 }
 
-h2 {
+.slogan {
   font-family: 'Quicksand', sans-serif;
   font-size: 15px;
   margin-top: -30px;
@@ -81,4 +81,13 @@ input:focus {
 .registration-prompt {
   font-family: 'Quicksand', sans-serif;
   font-weight: bold;
+}
+
+.login-error-message {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  color: #EF1652;
+  font-weight: bold;
+  font-size: 20px;
 }

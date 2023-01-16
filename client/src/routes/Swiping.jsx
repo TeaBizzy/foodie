@@ -11,6 +11,7 @@ const isSwipedMap = new Map();
 function Swipping() {
   const [session, setSession] = useState({restaurants: []});
   const [currentCardIdx, setCurrentCardIdx] = useState();
+  const [lastDirection, setLastDirection] = useState()
   const [isHovering, setIsHovering] = useState(false);
   const navigate = useNavigate();
   const { session_id } = useParams();
@@ -34,6 +35,7 @@ function Swipping() {
   const canSwipe = currentCardIdx >= 0;
 
   const swiped = (dir, index) => {
+    setLastDirection(dir)
     if (!isSwipedMap.get(index)) {
       isSwipedMap.set(index, true);
       axios('http://localhost:3000/swipe', {
@@ -49,6 +51,7 @@ function Swipping() {
 
   // For button swipe
   const swipe = async (dir) => {
+    setLastDirection(dir)
     if (!isSwipedMap.get(currentCardIdx)) {
       isSwipedMap.set(currentCardIdx, true);
       axios('http://localhost:3000/swipe', {
@@ -116,6 +119,7 @@ function Swipping() {
                 onSwipe={(dir) => swiped(dir, index)}
                 swipeThreshold={1}
                 swipeRequirementType="position"
+                preventSwipe={['up', 'down']}
               >
                 {element}
               </TinderCard>
@@ -125,25 +129,30 @@ function Swipping() {
         <div className="">
           <FaTimesCircle
             size={120}
-            className="buttons z100"
-            style={{ 
-              cursor: isHovering ? 'pointer' : '',
-              color: "#EC1562" }}
+            className="times-button"
             onClick={() => swipe("left")}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           />
           <FaCheckCircle
             size={120}
-            className="buttons z100 check"
-            style={{ 
-              cursor: isHovering ? 'pointer' : '',
-              color: "#3AF87A" }}
+            className="check-button"
             onClick={() => swipe("right")}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           />
         </div>
+        {lastDirection ? (
+          <h2 
+            className="swipe-direction"
+            key={lastDirection}>
+            You swiped {lastDirection}
+          </h2>
+        ) : (
+          <h2 className="swipe-direction">
+            Your culinary adventure awaits!
+          </h2>
+        )}
       </div>
     </div>
   );

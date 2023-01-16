@@ -5,6 +5,7 @@ import DateDetails from '../components/DateDetails'
 import LocationDetails from '../components/LocationDetails'
 import ParticipantDetails from '../components/ParticipantDetails'
 import "../components/Create.css"
+import Loading from '../components/Loading'
 
 export default function Create() {
   const [reservationDate, setReservationDate] = useState(null);
@@ -13,8 +14,10 @@ export default function Create() {
   const [invites, setInvites] = useState(['']);
   const navigate = useNavigate();
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
   function sendEmail(data) {
+    setLoading(true)
     axios({
       withCredentials: true,
       method: 'post',
@@ -27,14 +30,19 @@ export default function Create() {
           invites: data.invites.toString()
         }
       }
-    }).then(res => navigate('/'))
-      .catch(err => setError(err.response.data.error))
+    }).then(res => {
+      setLoading(false)
+      navigate('/')             
+  })
+      .catch(err => {
+        setLoading(false)
+        setError(err.response.data.error)
+      })
   }
 
   return (
     <div>
-    
-      <div className="session-details">    
+       { loading ? <Loading/> :  <div className="session-details">    
       { error && <span className="error-message">{error}</span>}
         <DateDetails reservationDate={reservationDate} setReservationDate={setReservationDate}/>
         <LocationDetails 
@@ -48,7 +56,8 @@ export default function Create() {
           <button onClick={()=> sendEmail({reservationDate, searchLocation, searchRadius, invites})} className="start-button">Start</button>
           <a href='/'><button className="cancel-button">Cancel</button></a>
         </div>
-      </div>
+      </div>}
+     
     </div>
   )
 }

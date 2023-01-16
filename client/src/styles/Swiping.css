@@ -13,16 +13,34 @@ section {
   margin-bottom: -200px;
 }
 
-.buttons {
+.times-button, .check-button {
   padding-top: 0px;
   padding-bottom: 0px;
   padding-left: 1rem;
   padding-right: 1rem;
-  margin-top: 525px;
+  margin-top: 13rem;
+}
+
+.times-button {
+  color: #EC1562;
+}
+
+.times-button:hover {
+  color: #B8124E;
+  cursor: pointer;
+}
+
+.check-button {
+  color: #3AF87A;
+}
+
+.check-button:hover {
+  color: #17B34C;
+  cursor: pointer;
 }
 
 .contained-restaurants {
-  height: calc(100vh - 100px);
+  height: calc(100vh);
   width: 95vw;
   overflow: hidden;
 }
@@ -39,3 +57,8 @@ section {
   top: 0;
   left: 0;
 }
+
+.swipe-direction {
+  font-family: 'Quicksand', sans-serif;
+}
+
