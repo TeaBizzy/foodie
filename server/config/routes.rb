@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'examples/index'
   
   get 'signed_on', to: 'login#is_logged_in'
-  get 'user_session_data/:user_id', to: 'application#user_session_data'
+  get 'user_session_data', to: 'application#user_session_data'
   get 'session_restaurants/:session_id', to: 'application#session_restaurants'
   post 'logout', to: 'login#logout'
   post 'swipe', to: 'restaurants#create_swipe'

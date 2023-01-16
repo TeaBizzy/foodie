@@ -12,7 +12,7 @@ export default function Home(props) {
 
   useEffect(() => {
     if(!user) return
-    axios(`http://localhost:3000/user_session_data/${user.id}`)
+    axios(`http://localhost:3000/user_session_data`, {withCredentials: true})
       .then((res) => {
         setSessions(res.data)
       })

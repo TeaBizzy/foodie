@@ -1,8 +1,13 @@
 class ApplicationController < ActionController::API
   include ActionController::MimeResponds
   def user_session_data
-    user_id = params.require(:user_id)
-    sessions = User.find(user_id).sessions
+    # Make sure user is logged in first.
+    if(!session[:current_user_id])
+      return render status: 401
+    end
+    
+    user_id = session[:current_user_id]
+    sessions = User.find_by(id: user_id).sessions
 
     @results = []
 
@@ -16,8 +21,6 @@ class ApplicationController < ActionController::API
       @reservation = session.reservation
       @restaurant = nil
       if(@session_status == 2)
-
-
         @restaurant = session.restaurants.first
         @restaurant = {name: @restaurant[:name], address: @restaurant[:address], img_url: @restaurant[:img_url]}
       end
