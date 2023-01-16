@@ -69,6 +69,12 @@ input:focus {
   border: none;
 }
 
+.register-button:hover, .login-button:hover {
+  color: #EF1652;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 8px 8px;
+}
+
 .register-button {
   margin-top: 10px;
   margin-bottom: 10px;
