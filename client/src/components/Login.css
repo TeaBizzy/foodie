@@ -57,7 +57,7 @@ input:focus {
 .register-button, .login-button {
   background-color: #EC1562;
   color: #ffffff;
-  font-family: 'Bebas Neue', cursive;
+  font-family: 'Inter', sans-serif;
   font-size: 20px;
   width: 150px;
   height: 35px;
