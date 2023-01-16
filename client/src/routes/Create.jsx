@@ -42,7 +42,9 @@ export default function Create() {
 
   return (
     <div>
-       { loading ? <Loading/> :  <div className="session-details">    
+       { loading ? <Loading
+       loading = {loading}
+       /> :  <div className="session-details">    
       { error && <span className="error-message">{error}</span>}
         <DateDetails reservationDate={reservationDate} setReservationDate={setReservationDate}/>
         <LocationDetails 
