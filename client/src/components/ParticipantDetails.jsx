@@ -19,7 +19,8 @@ export default function ParticipantDetails(props) {
           a[i] = e.target.value
           return a
           })}/>
-          <FaMinusCircle 
+          <FaMinusCircle
+            className="minus-circle"
             onClick={() => {
               setInvites(prev => {
                 const a = [...prev]
@@ -27,7 +28,7 @@ export default function ParticipantDetails(props) {
                 return a
               })
             }} 
-            size={30} style={{color: '#EF1562', marginBottom: 5, marginLeft: 5}} />
+          />
         </div>
       )
     }
@@ -37,23 +38,26 @@ export default function ParticipantDetails(props) {
 
   return (
     <div className="participant-container">
-    <FaUserAlt size={60} style={{color: '#8E8E8E'}}/>
-    <div className="participant-selection">
-      <h1 className="participants-h1">Who?</h1>
-      <div className="users">
-        <input className="default" placeholder="Email" value={invites[0]} onChange={e => setInvites(prev => {
-          const a = [...prev]
-          a[0] = e.target.value
-          return a
-        })}/>
+      <FaUserAlt size={60} style={{color: '#8E8E8E'}}/>
+      <div className="participant-selection">
+        <h1 className="participants-h1">Who?</h1>
+        <div className="users">
+          <input className="default" placeholder="Email" value={invites[0]} onChange={e => setInvites(prev => {
+            const a = [...prev]
+            a[0] = e.target.value
+            return a
+          })}/>
+        </div>
+        {drawInviteInputs()}
+        {invites.length < 4 &&
+          <FaPlusCircle 
+            className="plus-circle"
+            onClick={() => {
+            setInvites(prev => [...prev, ''])
+            }} 
+          />
+        }
       </div>
-      {drawInviteInputs()}
-      {invites.length < 4 &&
-        <FaPlusCircle onClick={() => {
-          setInvites(prev => [...prev, ''])
-          }} size={30} style={{color: '#EF1562', marginBottom: 5}} />
-      }
     </div>
-  </div>
   )
 }

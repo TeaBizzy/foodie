@@ -4,7 +4,7 @@ import NewStatus from "../Status/NewStatus"
 import Pending from "../Status/Pending"
 import "./SessionCard.css"
 import formatReservation from '../../helpers/ReservationFormatter';
-import { FaQuestionCircle } from 'react-icons/fa';
+import { FaQuestionCircle, FaUserAlt } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 
