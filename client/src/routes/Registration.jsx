@@ -60,7 +60,7 @@ const Registration = () => {
     <div className="container">
       <h1 className="register-h1">Foodie</h1>
       <h2 className="slogan">Hungry for options? Let us be your culinary compass!</h2>
-      { error && <h3> {error}</h3>}
+      { error && <span className="register-error-message"> {error}</span>}
       <form>
         <input onChange={handleFirstName} value={first_name} type="text" placeholder="First Name"></input>
         <input onChange={handleLastName} value={last_name} type="text" placeholder="Last Name"></input>

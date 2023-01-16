@@ -129,20 +129,14 @@ function Swipping() {
         <div className="">
           <FaTimesCircle
             size={120}
-            className="buttons z100"
-            style={{ 
-              cursor: isHovering ? 'pointer' : '',
-              color: "#EC1562" }}
+            className="times-button"
             onClick={() => swipe("left")}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           />
           <FaCheckCircle
             size={120}
-            className="buttons z100 check"
-            style={{ 
-              cursor: isHovering ? 'pointer' : '',
-              color: "#3AF87A" }}
+            className="check-button"
             onClick={() => swipe("right")}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}

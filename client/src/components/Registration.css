@@ -84,3 +84,12 @@ input:focus {
   font-family: 'Quicksand', sans-serif;
   font-weight: bold;
 }
+
+.register-error-message {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  color: #EF1652;
+  font-weight: bold;
+  font-size: 20px;
+}
