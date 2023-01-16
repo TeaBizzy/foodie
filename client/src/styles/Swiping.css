@@ -13,12 +13,30 @@ section {
   margin-bottom: -200px;
 }
 
-.buttons {
+.times-button, .check-button {
   padding-top: 0px;
   padding-bottom: 0px;
   padding-left: 1rem;
   padding-right: 1rem;
   margin-top: 525px;
+}
+
+.times-button {
+  color: #EC1562;
+}
+
+.times-button:hover {
+  color: #B8124E;
+  cursor: pointer;
+}
+
+.check-button {
+  color: #3AF87A;
+}
+
+.check-button:hover {
+  color: #17B34C;
+  cursor: pointer;
 }
 
 .contained-restaurants {
@@ -43,3 +61,4 @@ section {
 .swipe-direction {
   font-family: 'Quicksand', sans-serif;
 }
+
