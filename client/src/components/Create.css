@@ -24,6 +24,12 @@
   cursor: pointer;
 }
 
+.start-button:hover {
+  color: #EF1652;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 8px 8px;
+}
+
 .cancel-button {
   text-transform: uppercase;
   font-family: 'Inter', sans-serif;
@@ -41,6 +47,12 @@
   margin-left: 20px;
   border: none;
   cursor: pointer;
+}
+
+.cancel-button:hover {
+  color: white;
+  background-color: #EF1652;
+  box-shadow: none;
 }
 
 .error-message {
