@@ -46,7 +46,8 @@ export default function ParticipantDetails(props) {
             const a = [...prev]
             a[0] = e.target.value
             return a
-          })}/>
+          })}
+          />
         </div>
         {drawInviteInputs()}
         {invites.length < 4 &&

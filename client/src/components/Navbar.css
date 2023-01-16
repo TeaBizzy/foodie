@@ -16,6 +16,10 @@
   color: #EC1562;
 }
 
+.navbar-h1:hover {
+  cursor: pointer;
+}
+
 .user {
   display: flex;
   align-items: center;
