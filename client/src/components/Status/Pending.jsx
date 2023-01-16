@@ -7,7 +7,7 @@ const Pending = () => {
   return (
     <div className="status-pending">
       <span className="pending-message">pending</span>
-      <FaClock size={30} style={{color: 'white'}}/>
+      <FaClock size={30} style={{color: 'white', marginRight: 5}}/>
     </div>
   )
 }
