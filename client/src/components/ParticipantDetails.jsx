@@ -13,7 +13,7 @@ export default function ParticipantDetails(props) {
 
     for(let i = 1; i < invites.length; i++) {
       components.push(
-        <div className="users">
+        <div className="users" key={i - 1}>
           <input className="default" placeholder="Email" value={invites[i]} onChange={e => setInvites(prev => {
           const a = [...prev]
           a[i] = e.target.value
