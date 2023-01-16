@@ -4,7 +4,7 @@ import NewStatus from "../Status/NewStatus"
 import Pending from "../Status/Pending"
 import "./SessionCard.css"
 import formatReservation from '../../helpers/ReservationFormatter';
-import { FaQuestionCircle } from 'react-icons/fa';
+import { FaQuestionCircle, FaUserAlt } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 
@@ -73,7 +73,6 @@ export default function SessionCard(props) {
             )}
           </div>
           <div className="session-buttons">
-            <button className="session-cancel-button">Cancel</button>
             <button onClick={(event)=> onDelete(event)} className="session-cancel-button">Delete</button>
           </div>
         </div>

@@ -41,3 +41,27 @@
   align-items: center;
   margin-bottom: 4px;
 }
+
+.minus-circle {
+  height: 30px;
+  width: 30px;
+  color: #EC1562;
+  margin-bottom: 5px;
+  margin-left: 5px;
+}
+
+.minus-circle:hover {
+  cursor: pointer;
+}
+
+.plus-circle {
+  height: 30px;
+  width: 30px;
+  color: #EC1562;
+  margin-bottom: 5px;
+}
+
+.plus-circle:hover {
+  cursor: pointer;
+}
+
