@@ -82,6 +82,7 @@ GEM
       dotenv (= 2.8.1)
       railties (>= 3.2)
     erubi (1.12.0)
+    geocoder (1.8.1)
     globalid (1.0.0)
       activesupport (>= 5.0)
     google_places (2.0.0)
@@ -207,6 +208,7 @@ DEPENDENCIES
   bootsnap
   debug
   dotenv-rails
+  geocoder
   google_places
   mailgun-ruby (~> 1.2.6)
   net-smtp
