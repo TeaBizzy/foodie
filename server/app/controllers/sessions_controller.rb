@@ -1,3 +1,6 @@
+require 'pp'
+# require_dependency 'resources/google_places_parser.rb'
+
 class SessionsController < ApplicationController
 
   def create
@@ -36,8 +39,25 @@ class SessionsController < ApplicationController
       return render json: {error: session.errors.full_messages[0]}, status: 500
     end
     
-    # Create restaurants.
-    restaurants = Restaurant.all.sample(6)
+    # Get restaurants.
+    geocoder_results = Geocoder.search(@params[:location])
+    # Validate address.
+    if !geocoder_results.first
+      return render json: {error: 'Enter a valid address, or city + province name.'}, status: 500
+    end
+    
+    search_coordinates = geocoder_results.first.coordinates
+
+    puts ""
+    pp "Address: #{@params[:location]}, coordinates: #{search_coordinates}"
+    puts ""
+
+    places_parser = PlacesParser.new(search_coordinates[0], search_coordinates[1], @params[:radius])
+
+    restaurants = Restaurant.all.sample(6) # Un-comment to use seeded restaurant data.
+    # restaurants = places_parser.get_places # Un-comment to use google api to fetch places.
+
+    pp restaurants
 
     restaurants.each do |restaurant|
       name, address, phone_number, rating, img_url, website, lat, lng = restaurant.values_at(:name, :address, :phone_number, :rating, :img_url, :website, :lat, :lng)

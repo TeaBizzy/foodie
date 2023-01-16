@@ -41,6 +41,9 @@ gem 'mailgun-ruby', '~>1.2.6'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem "rack-cors"
 
+# Gem for convert addresses to coordinates.
+gem "geocoder"
+
 group :development, :test do
   # Testing with Rspec
   gem 'rspec-rails', '~> 5.1'

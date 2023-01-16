@@ -59,6 +59,6 @@ class PlacesParser < GooglePlaces::Client
     photo = self.spot(place_id).photos[0].fetch_url(600)
 
     # Returns the details and main img as a hash.
-    {:address => details.formatted_address, :phone_number => details.formatted_phone_number, :open_hours => details.opening_hours['periods'], :img => photo, :website => details.website}
+    {:address => details.formatted_address, :phone_number => details.formatted_phone_number, :open_hours => details.opening_hours['periods'], :img_url => photo, :website => details.website}
   end
 end
