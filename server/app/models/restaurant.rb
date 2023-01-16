@@ -2,6 +2,6 @@ class Restaurant < ApplicationRecord
   has_many :operating_times, dependent: :destroy
   has_many :swipes, dependent: :destroy
 
-  belongs_to :session
+  belongs_to :session, optional: true
   # No need for validations, as data doesn't come from users.
 end

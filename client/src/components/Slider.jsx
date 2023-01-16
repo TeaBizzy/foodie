@@ -18,7 +18,7 @@ const { searchRadius, setSearchRadius } = props;
         max="5000" 
         step="100" 
         value={searchRadius} 
-        onChange={(e) => setSearchRadius(e.target.value)}/>
+        onChange={(e) => setSearchRadius(Number(e.target.value))}/>
     </div>
   )
 }
