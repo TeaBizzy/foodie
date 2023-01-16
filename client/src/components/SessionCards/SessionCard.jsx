@@ -68,9 +68,20 @@ export default function SessionCard(props) {
           {status === 2 && <Finished />}
           <div className="session-participants">
             {/* Use map for now incase we gett to invite multiple users. */}
-            {invitedUsers.map((user, idx) => 
-              <img key={idx} src={user.img_url} alt='user profile img' className='session-user'/>
-            )}
+            
+            {invitedUsers.map((user, idx) => {
+            if(user.img_url) {
+              return (
+                <img key={idx} src={user.img_url} alt='👤' className='session-user'/>
+              )
+                
+            } else {
+              return (
+              <img key={idx} src={"favicon.ico"} alt='👤' className='session-user'/>
+              )
+            }
+              
+            })}
           </div>
           <div className="session-buttons">
             <button onClick={(event)=> onDelete(event)} className="session-cancel-button">Delete</button>
