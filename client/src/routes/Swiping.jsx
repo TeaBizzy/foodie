@@ -11,9 +11,17 @@ const isSwipedMap = new Map();
 function Swipping() {
   const [session, setSession] = useState({restaurants: []});
   const [currentCardIdx, setCurrentCardIdx] = useState();
+  const [isHovering, setIsHovering] = useState(false);
   const navigate = useNavigate();
   const { session_id } = useParams();
-  
+
+  const handleMouseEnter = () => {
+    setIsHovering(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovering(false);
+  };
 
   const childRefs = useMemo(
     () =>
@@ -118,14 +126,22 @@ function Swipping() {
           <FaTimesCircle
             size={120}
             className="buttons z100"
-            style={{ color: "#EC1562" }}
+            style={{ 
+              cursor: isHovering ? 'pointer' : '',
+              color: "#EC1562" }}
             onClick={() => swipe("left")}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
           />
           <FaCheckCircle
             size={120}
-            className="buttons z100"
-            style={{ color: "#3AF87A" }}
+            className="buttons z100 check"
+            style={{ 
+              cursor: isHovering ? 'pointer' : '',
+              color: "#3AF87A" }}
             onClick={() => swipe("right")}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
           />
         </div>
       </div>

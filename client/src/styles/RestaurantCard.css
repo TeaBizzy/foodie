@@ -9,6 +9,10 @@
   box-shadow: rgba(0, 0, 0, 0.24) 0px 8px 8px;
 }
 
+.card:hover {
+  cursor: pointer;
+}
+
 .card-header {
   background-color: #EC1562;
   border-top-left-radius: 25px;

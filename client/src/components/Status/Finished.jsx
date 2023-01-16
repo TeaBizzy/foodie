@@ -7,7 +7,7 @@ const Finished = () => {
   return (
     <div className="status-finished">
       <span className="finished-message">Finished</span>
-      <FaStar size={30} style={{color: 'white'}}/>
+      <FaStar size={30} style={{color: 'white', marginRight: 5}}/>
     </div>
   )
 }
