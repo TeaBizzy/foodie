@@ -42,3 +42,12 @@
   border: none;
   cursor: pointer;
 }
+
+.error-message {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  color: #EF1652;
+  font-weight: bold;
+  font-size: 20px;
+}
