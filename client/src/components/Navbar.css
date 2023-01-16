@@ -16,6 +16,10 @@
   color: #EC1562;
 }
 
+.navbar-h1:hover {
+  cursor: pointer;
+}
+
 .user {
   display: flex;
   align-items: center;
@@ -29,6 +33,7 @@
   color: #FFFFFF;
   background-color: #EC1562;
   margin-right: 10px;
+  border: solid #EC1562;
 }
 
 a {

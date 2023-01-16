@@ -8,7 +8,7 @@ const NewStatus = () => {
   return (
     <div className="status-new">
       <span className="new-message">New</span>
-      <FaPizzaSlice size={30} style={{color: 'white'}}/>
+      <FaPizzaSlice size={30} style={{color: 'white', marginRight: 5}}/>
     </div>
   )
 }

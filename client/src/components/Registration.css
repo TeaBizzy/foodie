@@ -57,7 +57,7 @@ input:focus {
 .register-button, .login-button {
   background-color: #EC1562;
   color: #ffffff;
-  font-family: 'Bebas Neue', cursive;
+  font-family: 'Inter', sans-serif;
   font-size: 20px;
   width: 150px;
   height: 35px;
@@ -67,6 +67,12 @@ input:focus {
   justify-content: center;
   cursor: pointer;
   border: none;
+}
+
+.register-button:hover, .login-button:hover {
+  color: #EF1652;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 8px 8px;
 }
 
 .register-button {

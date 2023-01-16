@@ -95,6 +95,12 @@
   cursor: pointer;
 }
 
+.session-cancel-button:hover {
+  color: #EF1652;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 8px 8px;
+}
+
 .session-participants {
   display: flex;
   justify-content: flex-end; 
@@ -109,4 +115,5 @@
   border-radius: 50%;
   background-color: #EC1562;
   margin-right: 5px;
+  border: 2px solid #EC1562;
 }

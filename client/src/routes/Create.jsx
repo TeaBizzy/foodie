@@ -35,7 +35,7 @@ export default function Create() {
     <div>
     
       <div className="session-details">    
-      { error && <h3> {error}</h3>}
+      { error && <span className="error-message">{error}</span>}
         <DateDetails reservationDate={reservationDate} setReservationDate={setReservationDate}/>
         <LocationDetails 
           searchLocation={searchLocation} 

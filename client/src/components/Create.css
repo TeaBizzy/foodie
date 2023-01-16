@@ -16,12 +16,18 @@
   align-items: center;
   color: white;
   background-color: #EF1652;
-  height: 80px;
+  height: 60px;
   width: 150px;
-  border-radius: 50px;
+  border-radius: 20px;
   margin-right: 20px;
   border: none;
   cursor: pointer;
+}
+
+.start-button:hover {
+  color: #EF1652;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 8px 8px;
 }
 
 .cancel-button {
@@ -34,11 +40,26 @@
   align-items: center;
   background-color: white;
   color: #EF1652;
-  height: 80px;
+  height: 60px;
   width: 150px;
-  border-radius: 50px;
+  border-radius: 20px;
   box-shadow: 2px 2px 2px 2px rgb(0 0 0 / 0.2);
   margin-left: 20px;
   border: none;
   cursor: pointer;
+}
+
+.cancel-button:hover {
+  color: white;
+  background-color: #EF1652;
+  box-shadow: none;
+}
+
+.error-message {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  color: #EF1652;
+  font-weight: bold;
+  font-size: 20px;
 }
