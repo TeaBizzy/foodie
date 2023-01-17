@@ -15,10 +15,10 @@ const Registration = () => {
 
   // Handling the name change
   const handleFirstName = (e) => {
-    setFirst_name(e.target.value.toLowerCase());
+    setFirst_name(e.target.value);
   };
   const handleLastName = (e) => {
-    setLast_name(e.target.value.toLowerCase());
+    setLast_name(e.target.value);
 
   };
   // Handling the email change
