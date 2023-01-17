@@ -44,6 +44,8 @@ gem "rack-cors"
 # Gem for convert addresses to coordinates.
 gem "geocoder"
 
+# Wrapper for Google Places API in Ruby
+gem 'google_places'
 # Required For Deployment.
 # gem 'irb'
 # gem 'reline'
@@ -61,11 +63,3 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
-
-group :development, :test do
-  # Wrapper for Google Places API in Ruby
-  gem 'google_places'
-end
-
-
-
