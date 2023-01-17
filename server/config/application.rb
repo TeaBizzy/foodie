@@ -35,7 +35,7 @@ module Server
 
     config.middleware.use ActionDispatch::Cookies
 
-    config.middleware.use ActionDispatch::Session::CookieStore, key: 'session_key'
+    config.middleware.use ActionDispatch::Session::CookieStore, key: 'session_key', httponly: false
 
     config.action_dispatch.cookies_same_site_protection = :strict
 
