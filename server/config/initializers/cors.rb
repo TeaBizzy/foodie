@@ -7,7 +7,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins "http://localhost:8080" # Set to the client domain.
+    origins "https://foodie-production.up.railway.app" # Set to the client domain.
 
     resource "*",
       headers: :any,
