@@ -28,9 +28,9 @@ const Login = (props) => {
   };
 
   function setLogin () {
-    axios('login',{
+    axios('login', {
       method: 'post',
-      baseURL: process.env.API_URL,
+      baseURL: 'https://foodie-api-eg2u.onrender.com',
       data: {
         user: {
           email: email,
