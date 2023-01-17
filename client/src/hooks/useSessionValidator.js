@@ -15,7 +15,7 @@ export default function useSessionValidator() {
     axios('signed_on', 
       {
         withCredentials: true,
-        baseURL: 'https://foodie-api-eg2u.onrender.com'
+        baseURL: process.env.API_URL
       })
       .then(res => setUser(res.data))
       .catch((err) => {
