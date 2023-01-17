@@ -45,8 +45,8 @@ gem "rack-cors"
 gem "geocoder"
 
 # Required For Deployment.
-gem 'irb'
-gem 'reline'
+# gem 'irb'
+# gem 'reline'
 
 group :development, :test do
   # Testing with Rspec
