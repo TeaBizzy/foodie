@@ -44,6 +44,10 @@ gem "rack-cors"
 # Gem for convert addresses to coordinates.
 gem "geocoder"
 
+# Required For Deployment.
+gem 'irb'
+gem 'reline'
+
 group :development, :test do
   # Testing with Rspec
   gem 'rspec-rails', '~> 5.1'
