@@ -8,6 +8,10 @@ import TinderCard from "react-tinder-card";
 
 const isSwipedMap = new Map();
 
+const funnyResponses = ["Great Choice!", "Looks good!", "are you for real?", "can I be invited too?", "Looks like a good time!", "The apps here are amazing!"]
+
+const banterResponses = ["Sorry, not sorry", "Maybe next time", "You had me at goodbye", "I'm not feeling it", "I'm not convinced", "I'll pass", "Sorry, not interested", "Thanks, but no thanks", "Not my type", "I'm not that desperate"]
+
 function Swipping() {
   const [session, setSession] = useState({restaurants: []});
   const [currentCardIdx, setCurrentCardIdx] = useState();
@@ -35,7 +39,14 @@ function Swipping() {
   const canSwipe = currentCardIdx >= 0;
 
   const swiped = (dir, index) => {
-    setLastDirection(dir)
+    if(dir === 'right'){
+      setLastDirection(funnyResponses[Math.floor(Math.random()*funnyResponses.length)])
+    }
+    
+
+    if(dir === 'left') {
+      setLastDirection(banterResponses[Math.floor(Math.random()*funnyResponses.length)])
+    }
     if (!isSwipedMap.get(index)) {
       isSwipedMap.set(index, true);
       axios('http://localhost:3000/swipe', {
@@ -146,7 +157,7 @@ function Swipping() {
           <h2 
             className="swipe-direction"
             key={lastDirection}>
-            You swiped {lastDirection}
+             {lastDirection}
           </h2>
         ) : (
           <h2 className="swipe-direction">
