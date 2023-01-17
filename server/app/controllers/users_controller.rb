@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :convert_to_lowercase, only: :create
+  before_action :capitalize_name, only: :create
   # POST /users
   def create
     @inputs = user_params
@@ -41,9 +41,9 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     end
 
-    def convert_to_lowercase
-      params[:user][:first_name].downcase!
-      params[:user][:last_name].downcase!
+    def capitalize_name
+      params[:user][:first_name].capitalize!
+      params[:user][:last_name].capitalize!
     end
     
 
