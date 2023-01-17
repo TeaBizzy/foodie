@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
- 
+  before_action :capitalize_name, only: :create
   # POST /users
   def create
     @inputs = user_params
@@ -40,6 +40,12 @@ class UsersController < ApplicationController
     def set_user
       @user = User.find(params[:id])
     end
+
+    def capitalize_name
+      params[:user][:first_name].capitalize!
+      params[:user][:last_name].capitalize!
+    end
+    
 
     # Only allow a list of trusted parameters through.
     def user_params
