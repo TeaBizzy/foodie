@@ -131,7 +131,7 @@ class SessionsController < ApplicationController
     # Update session status
     if swipes < @num_users * restaurants.length
       # Not all users have swiped. Set current users session status to 1. (pending)
-      user_session = UserSession.find_by(user_id: user_id)
+      user_session = @session.user_sessions.find_by(user_id: user_id)
       user_session.update(status: 1)
       return render status: 204
     else
