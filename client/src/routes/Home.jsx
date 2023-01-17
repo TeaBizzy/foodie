@@ -12,7 +12,11 @@ export default function Home(props) {
 
   useEffect(() => {
     if(!user) return
-    axios(`http://localhost:3000/user_session_data`, {withCredentials: true})
+    axios(`user_session_data`, 
+      {
+        withCredentials: true,
+        baseURL: 'https://foodie-api-eg2u.onrender.com'
+      })
       .then((res) => {
         setSessions(res.data)
       })
