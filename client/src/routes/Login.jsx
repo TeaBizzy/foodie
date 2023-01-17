@@ -28,9 +28,9 @@ const Login = (props) => {
   };
 
   function setLogin () {
-    axios({
+    axios('login',{
       method: 'post',
-      url: '/login',
+      baseURL: process.env.API_URL,
       data: {
         user: {
           email: email,
