@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter&family=Lobster&family=Quicksand&display=swap');
 
+
 .session {
   display: flex;
   align-items: center;
@@ -10,6 +11,11 @@
   width: 95%;
   margin-top: 10px;
   cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.session:hover {
+  background-color: rgba(224, 221, 221, 0.836);
 }
 
 .session-left {
