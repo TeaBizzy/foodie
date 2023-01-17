@@ -12,7 +12,11 @@ export default function useSessionValidator() {
       return;
     }
 
-    axios('http://localhost:3000/signed_on', {withCredentials: true})
+    axios('signed_on', 
+      {
+        withCredentials: true,
+        baseURL: 'https://foodie-api-eg2u.onrender.com'
+      })
       .then(res => setUser(res.data))
       .catch((err) => {
         setUser(null);
