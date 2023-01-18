@@ -19,12 +19,13 @@
 
 # Project Description
 
-This project is an web application called Foodie built with React for the front-end and Rails for the API. The application allows users to swipe on resturants near by in real-time. Data is stored by the API server using PostgreSQL and the client application communicates with the API server over HTTP in a JSON format. 
-  
+Foodie is a revolutionary web application that simplifies the process of choosing a restaurant. The application utilizes a unique swiping feature, allowing users to easily browse through nearby restaurants in real-time. The front-end of the application is built using React, which provides a smooth and intuitive user experience. The back-end is built using Rails, which communicates with a PostgreSQL database to store and retrieve data, and it communicates with the client over HTTP in a JSON format.
 
-The project utilizes React hooks, axios, JSX, HTML, JavaScript, CSS, Ruby on Rails, PSQL, and several other dependencies. 
-  
-The project is open source and contributions can be made through the provided GitHub link. Contact information for the project team is also provided.
+The project utilizes a wide range of technologies such as React hooks, axios, JSX, HTML, JavaScript, CSS, Ruby on Rails, PSQL, and several other dependencies. It also utilizes Google Places API to get nearby restaurants.
+
+Foodie is open source and contributions can be made through the provided GitHub link. The team behind this project is made up of experienced developers who are dedicated to creating a high-quality product. With this in mind, the project utilizes a wide range of technologies such as React, Axios, JSX, HTML, JavaScript, CSS, Ruby on Rails, PSQL and several other dependencies. The project team can be contacted directly through the provided email addresses for any further questions or inquires.
+
+To get started with this project, you will need npm, node, ruby, rails and postgres installed on your computer. You can then create a new repository from the template, clone it, and follow the provided instructions for installing gems, creating a database, and running the server and client. The application can be accessed by starting the server and launching the client in separate terminals.
 
 <!-- GETTING STARTED -->
 ## Getting Started
