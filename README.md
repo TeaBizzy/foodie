@@ -17,6 +17,9 @@
 
 ---
 
+# Project Description
+The interview scheduler is an web application that tracks student interviews built with the latest tools to optimize ones user experience! We utilaize React's bult-in and custom hooks that allows user to add, edit, and delete appointments in real time! Data is stored by the API server using PSQL (PostgreSQL. Using JSON the client application is able to communicate with the API server over HTTP in a JSON format. Quality control is important, so this project follows best practicies of TDD (Test Driven Development), where individual components are tested in isloation and End-To-End testing is preformed!
+
 <!-- GETTING STARTED -->
 ## Getting Started
 
@@ -148,9 +151,44 @@
 
 ---
 
+
+## Pages
+
+### Logging in
+
+### Registering
+
+### Swiping
+
+
+
+## Project Stack
+Front-End: React, Axios, JSX, HTML, JavaScript, CSS
+Back-End: Ruby on Rails, PSQL
+## Dependencies
+- Axios
+- Classnames
+- Normalize.css
+- React
+- React-dom
+- React-scripts
+- Google Places Api
+- Action Mailer
+- PSQL
+- useState, useEffect and useNavigate
+- tinderCard
+- google_places 
+- bCrypt
+- geoCoder
+
+
 <!-- CONTACT -->
 ## Contact
 
-Stefan Talbot - satalbot@protonmail.com
+#### Stefan Talbot - satalbot@protonmail.com
+#### Rahim Jamal  - rahimj2196@gmail.com 
+#### Kelvin Huang - kelvin.huang98@hotmail.com
 
+
+#
 Project Link: [https://github.com/TeaBizzy/rails-react-app-template](https://github.com/TeaBizzy/rails-react-app-template)
