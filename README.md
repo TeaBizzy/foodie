@@ -155,10 +155,21 @@ The interview scheduler is an web application that tracks student interviews bui
 ## Pages
 
 ### Logging in
+  
+https://user-images.githubusercontent.com/112907944/213276355-2eadab72-9af0-46f5-8763-23df046a8532.mp4
+
 
 ### Registering
 
+
+https://user-images.githubusercontent.com/112907944/213276449-df106809-ba81-4e8e-be6d-4fa988df9afc.mp4
+
+
 ### Swiping
+
+### Create Session
+
+https://user-images.githubusercontent.com/112907944/213276476-a2d38fed-fd22-455e-a214-2b1298c9e5b3.mp4
 
 
 
