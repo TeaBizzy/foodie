@@ -1,10 +1,10 @@
 <!-- PROJECT LOGO -->
 <div align="center">
 
-# RAILS-REACT APP TEMPLATE
+# Foodie App!
 
 <div align="center">
-  A template for apps build using Rails for an API with a React front-end.
+  A solution to all your resturants decisions!
   <div>
     <a href="https://github.com/TeaBizzy/rails-react-template/issues">Report Bug</a>
     ·
