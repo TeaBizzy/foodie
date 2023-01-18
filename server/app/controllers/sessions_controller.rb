@@ -54,9 +54,9 @@ class SessionsController < ApplicationController
 
     places_parser = PlacesParser.new(search_coordinates[0], search_coordinates[1], @params[:radius])
 
-    restaurants = Restaurant.all.sample(6) # Un-comment to use seeded restaurant data.
-    sleep(4) # Uncomment to simulate google api request delay.
-    # restaurants = places_parser.get_places # Un-comment to use google api to fetch places.
+    # restaurants = Restaurant.all.sample(6) # Un-comment to use seeded restaurant data.
+    # sleep(4) # Uncomment to simulate google api request delay.
+    restaurants = places_parser.get_places # Un-comment to use google api to fetch places.
 
     pp restaurants
 
